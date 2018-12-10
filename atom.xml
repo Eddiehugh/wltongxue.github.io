@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-19T11:39:18.682Z</updated>
+  <updated>2018-12-10T12:05:49.376Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/hello-world/"/>
-    <id>http://yoursite.com/hello-world/</id>
+    <title>什么是数据挖掘</title>
+    <link href="http://yoursite.com/%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    <id>http://yoursite.com/什么是数据挖掘/</id>
+    <published>2018-12-10T11:27:57.000Z</published>
+    <updated>2018-12-10T12:05:49.376Z</updated>
+    
+    <content type="html"><![CDATA[<p>本次学习我们将从4个方面进行深入介绍：<br><strong>1、数据挖掘的定义。</strong>（了解什么是数据挖掘？它是用来干什么的？）<br><strong>2、数据挖掘的过程。</strong>（明白数据挖掘要做什么事情？）<br><strong>3、挖掘建模中的算法和评价。</strong>（了解挖掘中最重要的建模部分都有哪些？）<br><strong>4、所使用的python库。</strong>（使用代码进行实现时我们要具备的环境？）</p><h1 id="一、什么是数据挖掘"><a href="#一、什么是数据挖掘" class="headerlink" title="一、什么是数据挖掘"></a>一、什么是数据挖掘</h1><p>1、数据挖掘一般是指从大量的数据中通过<strong>算法搜索</strong>隐藏于其中信息的过程。（这里如果不懂，可以先往下看，会举例说明）<br>2、基本任务包括<strong>利用分类与预测、聚类分析、关联规则、时序模式、偏差检测、智能推荐等方法</strong>，从数据中提取蕴含价值的信息。<br>3、根据<strong>问题决定属于哪一类任务</strong>，确定任务以后再决定使用什么算法建模<br><em>注：机器学习算法指的是分类与预测 和 聚类分析算法（每一次从数据集的学习都是不确定的，这样的算法叫做机器学习算法）</em></p><h1 id="二、数据挖掘的过程"><a href="#二、数据挖掘的过程" class="headerlink" title="二、数据挖掘的过程"></a>二、数据挖掘的过程</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本次学习我们将从4个方面进行深入介绍：&lt;br&gt;&lt;strong&gt;1、数据挖掘的定义。&lt;/strong&gt;（了解什么是数据挖掘？它是用来干什么的？）&lt;br&gt;&lt;strong&gt;2、数据挖掘的过程。&lt;/strong&gt;（明白数据挖掘要做什么事情？）&lt;br&gt;&lt;strong&gt;3、挖掘建模中的
+      
+    
+    </summary>
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫介绍</title>
+    <link href="http://yoursite.com/%E7%88%AC%E8%99%AB%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/爬虫介绍/</id>
+    <published>2018-11-27T08:49:23.894Z</published>
+    <updated>2018-12-10T11:34:12.299Z</updated>
+    
+    <content type="html"><![CDATA[<p>本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。<br><strong>这里使用的是python3</strong></p><h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><p>通过python请求页面，获取页面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import url open</span><br><span class="line">html=urlopen(<span class="string">"http://pythonscraping.com"</span>/pages/page1.html)</span><br><span class="line"><span class="built_in">print</span>(html.read())</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。&lt;br&gt;&lt;strong&gt;这里使用的是python3&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;网络连接&quot;&gt;&lt;a href=&quot;#网络连接&quot; class=&quot;headerlink&quot; title=&quot;网络连接&quot;&gt;&lt;/a&gt;网络连
+      
+    
+    </summary>
+    
+      <category term="数据采集" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to use Hexo</title>
+    <link href="http://yoursite.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/"/>
+    <id>http://yoursite.com/如何使用hexo/</id>
     <published>2018-11-19T11:39:18.682Z</published>
-    <updated>2018-11-19T11:39:18.682Z</updated>
+    <updated>2018-12-10T11:30:54.648Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -34,6 +89,10 @@
     
     </summary>
     
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
