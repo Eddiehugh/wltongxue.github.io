@@ -323,8 +323,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据挖掘/" itemprop="url" rel="index">
-                    <span itemprop="name">数据挖掘</span>
+                  <a href="/categories/数据挖掘实战讲解系列/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘实战讲解系列</span>
                   </a>
                 </span>
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  313
+                  1.4k
                 </span>
               
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -395,7 +395,118 @@
           
             <p>本次学习我们将从4个方面进行深入介绍：<br><strong>1、数据挖掘的定义。</strong>（了解什么是数据挖掘？它是用来干什么的？）<br><strong>2、数据挖掘的过程。</strong>（明白数据挖掘要做什么事情？）<br><strong>3、挖掘建模中的算法和评价。</strong>（了解挖掘中最重要的建模部分都有哪些？）<br><strong>4、所使用的python库。</strong>（使用代码进行实现时我们要具备的环境？）</p>
 <h1 id="一、什么是数据挖掘"><a href="#一、什么是数据挖掘" class="headerlink" title="一、什么是数据挖掘"></a>一、什么是数据挖掘</h1><p>1、数据挖掘一般是指从大量的数据中通过<strong>算法搜索</strong>隐藏于其中信息的过程。（这里如果不懂，可以先往下看，会举例说明）<br>2、基本任务包括<strong>利用分类与预测、聚类分析、关联规则、时序模式、偏差检测、智能推荐等方法</strong>，从数据中提取蕴含价值的信息。<br>3、根据<strong>问题决定属于哪一类任务</strong>，确定任务以后再决定使用什么算法建模<br><em>注：机器学习算法指的是分类与预测 和 聚类分析算法（每一次从数据集的学习都是不确定的，这样的算法叫做机器学习算法）</em></p>
-<h1 id="二、数据挖掘的过程"><a href="#二、数据挖掘的过程" class="headerlink" title="二、数据挖掘的过程"></a>二、数据挖掘的过程</h1>
+<h1 id="二、数据挖掘的过程"><a href="#二、数据挖掘的过程" class="headerlink" title="二、数据挖掘的过程"></a>二、数据挖掘的过程</h1><p>&#160; &#160;数据挖掘的过程及描述：</p>
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>过程</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定义挖掘目标</td>
+<td>要实现什么样的哦功能，找到什么样的信息</td>
+</tr>
+<tr>
+<td>数据取样</td>
+<td>需要哪些原始的数据</td>
+</tr>
+<tr>
+<td>数据探索</td>
+<td>对数据进行了解分析（直观或统计）、数据质量分析（脏数据等）、数据特征分析（分布等）</td>
+</tr>
+<tr>
+<td>数据预处理</td>
+<td>数据清洗、数据集成、数据变换、数据规约；降维、补缺等修剪来获得“好”数据</td>
+</tr>
+<tr>
+<td>挖掘建模</td>
+<td>首先判断属于哪类问题（分类、聚类等）；选用对应的算法和模型进行数据分析</td>
+</tr>
+<tr>
+<td>模型评估</td>
+<td>对所选用的模型进行评测；利用该类模型的评估指标（方差、ROC等）</td>
+</tr>
+</tbody>
+</table>
+<p><em>注：数据探索和数据预处理都是为了获取到好的数据训练而服务的<br>&#160; &#160;脏数据包括：缺失、异常、一致<br>&#160; &#160;特征分析：分布、对比、统计量、周期性、贡献度、相关性<br>&#160; &#160;统计数据清洗：缺失值、异常值处理<br>&#160; &#160;数据集成：实体识别、冗余属性识别<br>&#160; &#160;数据变换：简单函数变换、规范化、连续属性离散化、属性构造、小波变换<br>&#160; &#160;数据规约：属性规约、数值规约 </em></p>
+<h1 id="三、挖掘建模中常用的算法和评价"><a href="#三、挖掘建模中常用的算法和评价" class="headerlink" title="三、挖掘建模中常用的算法和评价"></a>三、挖掘建模中常用的算法和评价</h1><p>&#160; &#160;机器学习算法指的是<strong>分类与预测和聚类分析算法（每一次从数据集的学习都是不确定的）</strong>，并且模型在不断学习提升（变化），所以机器学习获得的模型或者算法是需要评价，评价学习结果的好坏。</p>
+<h3 id="1、分类与预测"><a href="#1、分类与预测" class="headerlink" title="1、分类与预测"></a>1、分类与预测</h3><h4 id="分类与预测常用算法"><a href="#分类与预测常用算法" class="headerlink" title="分类与预测常用算法"></a>分类与预测常用算法</h4><p>解决的问题：预测分类标号、预测某个值<br>1、回归分析：线性、非线性、Logistic、岭回归、主成分<br>2、决策树：ID3、C4.5、CART<br>3、人工神经网络：BP、LM、RBF、FNN、GMDH、ANFIS<br>4、贝叶斯网络<br>5、支持向量机（SVM）</p>
+<h4 id="分类与预测算法评价指标"><a href="#分类与预测算法评价指标" class="headerlink" title="分类与预测算法评价指标"></a>分类与预测算法评价指标</h4><p>1、绝对误差与相对误差<br>2、平均绝对误差<br>3、均方误差<br>4、均方根误差<br>5、平均绝对百分误差<br>6、Kappa统计<br>7、识别准确度<br>8、识别精确率<br>9、反馈率<br>10、ROC曲线<br>11、混淆矩阵</p>
+<h3 id="2、聚类分析"><a href="#2、聚类分析" class="headerlink" title="2、聚类分析"></a>2、聚类分析</h3><h4 id="聚类分析常用算法"><a href="#聚类分析常用算法" class="headerlink" title="聚类分析常用算法"></a>聚类分析常用算法</h4><p>解决的问题：非监督、无类标记、自行分类<br>1、K-means<br>2、K-中心点<br>3、系统聚类</p>
+<h4 id="聚类分析算法评价"><a href="#聚类分析算法评价" class="headerlink" title="聚类分析算法评价"></a>聚类分析算法评价</h4><p>1、purity评价法<br>2、R1评价法<br>3、F值评价法</p>
+<h3 id="3、关联规则"><a href="#3、关联规则" class="headerlink" title="3、关联规则"></a>3、关联规则</h3><h4 id="关联规则的常用算法"><a href="#关联规则的常用算法" class="headerlink" title="关联规则的常用算法"></a>关联规则的常用算法</h4><p>解决的问题：找出数据之间的关系<br>1、Apriori<br>2、FP-Tree<br>3、Eclat算法<br>4、灰色关联法</p>
+<h3 id="4、时序模式"><a href="#4、时序模式" class="headerlink" title="4、时序模式"></a>4、时序模式</h3><h4 id="时序模式常用时序模型"><a href="#时序模式常用时序模型" class="headerlink" title="时序模式常用时序模型"></a>时序模式常用时序模型</h4><p>解决的问题：给定时间序列、预测未来值<br>1、平滑法、趋势拟合法、组合模型<br>2、AR模型、MA模型、ARMA模型、ARIMA模型<br>3、ARCH模型、GARCH模型</p>
+<h3 id="5、离群点检测"><a href="#5、离群点检测" class="headerlink" title="5、离群点检测"></a>5、离群点检测</h3><h4 id="离群点检测方法"><a href="#离群点检测方法" class="headerlink" title="离群点检测方法"></a>离群点检测方法</h4><p>解决的问题：发现信息的噪声点<br>1、基于统计的<br>2、基于邻近度的<br>3、基于密度的<br>4、基于聚类的</p>
+<h1 id="四、所使用的python库"><a href="#四、所使用的python库" class="headerlink" title="四、所使用的python库"></a>四、所使用的python库</h1><p>&#160; &#160;Python数据挖掘相关扩展库：</p>
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>扩展库</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numpy</td>
+<td>提供数组支持，以及相应的高效的处理函数</td>
+</tr>
+<tr>
+<td>Scipy</td>
+<td>提供矩阵支持，以及矩阵相关的数值计算模块</td>
+</tr>
+<tr>
+<td>Matplotlib</td>
+<td>强大的数据可视化工具、作图库</td>
+</tr>
+<tr>
+<td>Pandas</td>
+<td>强大、灵活的数据分析和探索工具</td>
+</tr>
+<tr>
+<td>StatsModels</td>
+<td>统计建模和计量经济学，包括描述统计、统计模型估计和推断</td>
+</tr>
+<tr>
+<td>Scikit-Learn</td>
+<td>支持回归、分析、聚类等的强大的机器学习库</td>
+</tr>
+<tr>
+<td>Keras</td>
+<td>深度学习库，用于建立神经网络以及深度学习模型</td>
+</tr>
+<tr>
+<td>Genism</td>
+<td>用来做文本主题模型的库，本文挖掘可能用到</td>
+</tr>
+</tbody>
+</table>
+<h1 id="五、实践展示"><a href="#五、实践展示" class="headerlink" title="五、实践展示"></a>五、实践展示</h1><ul>
+<li><a href="https://wltongxue.github.io/%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" target="_blank" rel="noopener">电力窃漏电用户自动识别</a></li>
+<li>航空公司客户价值分析</li>
+<li>中医证型关联规则挖掘</li>
+<li>基于水色图像的水质评价</li>
+<li>家用电器用户行为分析与事件识别</li>
+<li>应用系统负载分析与磁盘容量预测</li>
+<li>电子商务网站用户行为分析及服务推荐</li>
+<li>财政收入影响因素分析及预测模型</li>
+<li>基于基站定位数据的商圈分析</li>
+<li>电商产品评论数据情感分析</li>
+</ul>
+
           
         
       
