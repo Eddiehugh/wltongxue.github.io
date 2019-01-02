@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="数据挖掘,数据处理,插值,">
+  <meta name="keywords" content="python,数据挖掘,机器学习,">
 
 
 
@@ -85,21 +85,20 @@
 
 
 
-<meta name="description" content="本次学习我们主要是从数学角度推导一下拉格朗日插值法和牛顿插值法，使读者能更深入理解该数据处理方法。">
-<meta name="keywords" content="数据挖掘,数据处理,插值">
+<meta name="description" content="本次学习我们将详细介绍什么是CART决策树算法，以及它的前身ID3算法。介绍所涉及到的概念，算法的原理和步骤。">
+<meta name="keywords" content="python,数据挖掘,机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="拉格朗日插值法">
-<meta property="og:url" content="http://yoursite.com/拉格朗日插值法/index.html">
+<meta property="og:title" content="ID3、CART算法">
+<meta property="og:url" content="http://yoursite.com/CART/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="本次学习我们主要是从数学角度推导一下拉格朗日插值法和牛顿插值法，使读者能更深入理解该数据处理方法。">
+<meta property="og:description" content="本次学习我们将详细介绍什么是CART决策树算法，以及它的前身ID3算法。介绍所涉及到的概念，算法的原理和步骤。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/拉格朗日插值法/newton_f(x)1.png">
-<meta property="og:image" content="http://yoursite.com/拉格朗日插值法/newton_f(x)2.png">
-<meta property="og:updated_time" content="2019-01-02T10:56:17.113Z">
+<meta property="og:image" content="http://yoursite.com/CART/CART_cut.png">
+<meta property="og:updated_time" content="2019-01-02T12:21:18.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="拉格朗日插值法">
-<meta name="twitter:description" content="本次学习我们主要是从数学角度推导一下拉格朗日插值法和牛顿插值法，使读者能更深入理解该数据处理方法。">
-<meta name="twitter:image" content="http://yoursite.com/拉格朗日插值法/newton_f(x)1.png">
+<meta name="twitter:title" content="ID3、CART算法">
+<meta name="twitter:description" content="本次学习我们将详细介绍什么是CART决策树算法，以及它的前身ID3算法。介绍所涉及到的概念，算法的原理和步骤。">
+<meta name="twitter:image" content="http://yoursite.com/CART/CART_cut.png">
 
 
 
@@ -129,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/拉格朗日插值法/">
+  <link rel="canonical" href="http://yoursite.com/CART/">
 
 
 
 
 
-  <title>拉格朗日插值法 | wltongxue</title>
+  <title>ID3、CART算法 | wltongxue</title>
   
 
 
@@ -272,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/拉格朗日插值法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/CART/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wltongxue">
@@ -289,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">拉格朗日插值法</h1>
+          <h1 class="post-title" itemprop="name headline">ID3、CART算法</h1>
         
 
         <div class="post-meta">
@@ -301,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T19:27:57+08:00">
-                2018-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-02T19:06:52+08:00">
+                2019-01-02
               </time>
             
 
@@ -324,8 +323,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础概念/" itemprop="url" rel="index">
-                    <span itemprop="name">基础概念</span>
+                  <a href="/categories/机器学习算法/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习算法</span>
                   </a>
                 </span>
 
@@ -341,7 +340,7 @@
 
           
           
-             <span id="/拉格朗日插值法/" class="leancloud_visitors" data-flag-title="拉格朗日插值法">
+             <span id="/CART/" class="leancloud_visitors" data-flag-title="ID3、CART算法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -366,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  635
+                  1.5k
                 </span>
               
 
@@ -382,7 +381,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -403,10 +402,19 @@
       
 
       
-        <p>本次学习我们主要是从数学角度推导一下拉格朗日插值法和牛顿插值法，使读者能更深入理解该数据处理方法。<br><a id="more"></a></p>
-<h1 id="一、拉格朗日插值法"><a href="#一、拉格朗日插值法" class="headerlink" title="一、拉格朗日插值法"></a>一、拉格朗日插值法</h1><p>1）根据数学知识我们知道，对于平面上已知的n个点，可以找到一个n-1次多项式$y=a_0+a_1x+a_2x^2+…+a_{n-1}x^{n-1}$，使此多项式曲线过这n个点。<br>求已知的过n个点的n-1次多项式：<br>$$y=a_0+a_1x+a_2x^2+…+a_{n-1}x^{n-1}$$<br>将n个点的坐标$(x_1,y_1),(x_2,y_2)…(x_n,y_n)$代入多项式函数，得：<br>$$y_1=a_0+a_1x_1+a_2{x_1}^2+…+a_{n-1}{x_1}^{n-1}$$<br>$$y_2=a_0+a_1x_2+a_2{x_2}^2+…+a_{n-1}{x_2}^{n-1}$$<br>$$…$$<br>$$y_n=a_0+a_1x_n+a_2{x_n}^2+…+a_{n-1}{x_n}^{n-1}$$<br>2）于是，我们构造一个函数，这个函数要满足可以取到任意$(x_i,y_i)$这个点<br>$$L(x)=y_1{\frac{(x-x_2)(x-x_3)…(x-x_n)}{(x_1-x_2)(x_1-x_3)…(x_1-x_n)}}<br>        +y_2{\frac{(x-x_1)(x-x_3)…(x-x_n)}{(x_2-x_1)(x_2-x_3)…(x_2-x_n)}}+…<br>        +y_n{\frac{(x-x_1)(x-x_2)…(x-x_{n-1})}{(x_n-x_1)(x_n-x_2)…(x_n-x_{n-1})}}<br>        =\sum_{i=0}^n{y_i{\prod_{j=0,j{\neq}i}^n{\frac{x-x_j}{x_i-x_j}}}}$$<br>令$l(i)={\prod_{j=0,j{\neq}i}^n{\frac{x-x_j}{x_i-x_j}}}$<br>由上式可以发现，$l(i)$只有在$x_i$处取到值1，在$x_j(j{\neq}i)$处都为0，那么$L(x)$这个多项式就可以取到点$(x_i,y_i)$且不影响其他n个点，用无数多个点就可以确定一个线，成为一个连续得函数，就可以求出上式求出某个给定$x$得近似值$L(x)$</p>
-<p><strong>此时提出一个问题：当插值点增减，多项式里的每一项都要变，这很不方便！！<br>所以提出：牛顿插值法</strong></p>
-<h1 id="二、牛顿插值法"><a href="#二、牛顿插值法" class="headerlink" title="二、牛顿插值法"></a>二、牛顿插值法</h1><p>1）差商的定义：<br>函数$f(x)$在两个互异点$x_i,x_j$处的一阶差商定义为：<br>$$f[x_i,x_j]=\frac{f(x_i)-f(x_j)}{x_i-x_j} (i{\neq}j,x_i{\neq}x_j)$$<br>2阶差商：<br>$$f[x_i,x_j,x_k]=\frac{f[x_i,x_j]-f[x_j,x_k]}{x_i-x_k} (i{\neq}k)$$<br>k+1阶差商<br>$$f[x_0,…,x_(k+1)]=\frac{f[x_0,x_1,…,x_k]-f[x_1,…,x_k,x_(k+1)]}{x_0-x_(k+1)}$$<br>2）求已知n个点对$(x_1,y_1),(x_2,y_2),…,(x_n,y_n)$的所有阶差商公式，推导以上$f(x)$:<br><img src="/拉格朗日插值法/newton_f(x)1.png" width="800" height="800"><br><img src="/拉格朗日插值法/newton_f(x)2.png" width="800" height="800"><br>N(x)是逼近函数，R(x)是误差函数<br>3）牛顿插值法的优点：<br>当增加一个插值节点只需在最后加一项，前面各项均不变。<br>也是多项式，取$(x_i,y_i)$不影响其他点，两者结果一样，只是表现形式不同。</p>
+        <p>本次学习我们将详细介绍什么是CART决策树算法，以及它的前身ID3算法。介绍所涉及到的概念，算法的原理和步骤。<br><a id="more"></a></p>
+<h1 id="一、介绍ID3算法"><a href="#一、介绍ID3算法" class="headerlink" title="一、介绍ID3算法"></a>一、介绍ID3算法</h1><h2 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h2><h3 id="信息熵："><a href="#信息熵：" class="headerlink" title="信息熵："></a>信息熵：</h3><p>用来度量一个属性的信息量。<br>假定S为训练集，S的目标属性C具有m个可能的类标号值，$C={C_1,C_2,…,C_m}$，假定训练集S中，$C_i$在所有样本中出现的频率为$P_i(i=1,2,3,…,m)$，则该训练集S所包含的信息熵定义为：<br>$$Entropy(S = Entropy(p_i,p_2,…,p_m) = -{\sum_{i=1}^m}{p_ilog_2p_i}$$<br>熵越小表示样本对目标属性的分布越纯，反之熵越大表示样本对目标属性分布越混乱。</p>
+<h3 id="信息增益："><a href="#信息增益：" class="headerlink" title="信息增益："></a>信息增益：</h3><p>信息增益是划分前呀根本数据的熵和划分后样本数据集的熵的差值<br>假设划分前样本数据集为S，并用属性A来划分样本集S，则按属性A划分S的信息增益$Gain(S,A)$为样本集S的熵减去按属性A划分S后的样本自己的熵：<br>$$Gain(S,A)=Entropy(S)-Entropy_A(S)$$<br>按属性A划分S后的样本自己的熵定义如下：假定属性A有k个不同的取值，从而将S划分为k个样本子集${S_1,S_2,…,S_k}$，则按属性A划分S后的样本子集的信息熵为：<br>$$Entropy_A(S)={\sum_{i=1}^k}\frac{|S_i|}{|S|}Entropy(S_i)$$<br>其中$|S_i|(i=1,2,…,k)$为样本子集$S_i$中包含的样本数，$|S|$为样本集S中包含的样本数。信息增益越大，说明使用属性A划分后的样本子集越纯，越有利于分类。</p>
+<blockquote>
+<p>问题：用哪个属性最适合充当根节点？答：选择信息增益最大的。</p>
+</blockquote>
+<h2 id="2、ID3算法步骤"><a href="#2、ID3算法步骤" class="headerlink" title="2、ID3算法步骤"></a>2、ID3算法步骤</h2><p>ID3算法的具体详细实现步骤如下。<br>1）对当前样本集合，计算所有属性的信息增益；<br>2）选择信息增益最大的属性作为测试属性，把测试属性取值相同的样本划为同一个子样本集；<br>3）若子样本集的类别属性只含有单个属性，则分支为叶子节点，判断其属性值并标上相应的符号，然后返回调用处；否则对子样本集递归调用本算法。<br>其核心是在决策树的各级节点上，使用信息增益方法作为属性的选择标准，来帮助确定生成每个节点时所应采用的合适属性。即选择合适的属性节点及其顺序来构建决策树。</p>
+<h1 id="二、CART决策树"><a href="#二、CART决策树" class="headerlink" title="二、CART决策树"></a>二、CART决策树</h1><h2 id="1、理解"><a href="#1、理解" class="headerlink" title="1、理解"></a>1、理解</h2><p>它既是回归树，又是分类树，但它是二叉树。ID3只能分类。<br>CART算法是一种二分递归分割技术，把当前样本划分为两个子样本，使得生成的每个非叶子节点都有两个分支，因此CART算法生成的决策树是结构简洁的二叉树。由于CART算法构成的是一个二叉树，它在每一步的决策时只能选择“是”或者“否”，即使一个feature有多个取值，也就是把数据分为两部分。在CART算法中主要分为两个步骤：<br>（1）将样本递归划分进行建树的过程<br>（2）用验证数据进行剪枝</p>
+<h2 id="2、建树原理"><a href="#2、建树原理" class="headerlink" title="2、建树原理"></a>2、建树原理</h2><h3 id="1、如何进行划分"><a href="#1、如何进行划分" class="headerlink" title="1、如何进行划分"></a>1、如何进行划分</h3><p>属性是按照顺序一层层，着重划分属性值，注意，这里选的是属性值，而不是选属性。<br>设$x_1,x_2,…x_n$代表单个样本的$n$个属性，$y$表示所属类别。CART算法通过递归的方式将n维的空间划分为不重叠的矩形，划分步骤大致如下：<br>（1）选一个自变量$x_i$，再选取$x_i$的一个值$v_i$，$v_i$把$n$维空间划分为两部分，一部分的所有点都满足$x_i{\leq}v_i$，另一部分的所有点满足$x_i&gt;v_i$，对非连续变量来说属性值的取值只有两个，即等于该值或不等于该值。<br>（2）递归处理，将上面得到的两部分按照步骤（1）重新选取一个属性继续划分，知道把整个$n$维空间都划分完。</p>
+<h3 id="2、按照什么标准来划分？"><a href="#2、按照什么标准来划分？" class="headerlink" title="2、按照什么标准来划分？"></a>2、按照什么标准来划分？</h3><p>每个属性的划分按照能减少的杂质的量来进行排序，而杂质的减少量定义为划分前的杂质减去划分后的每个节点的杂质量划分所占比率之和。而杂质度量方法常用$Gini指标$，假设一个样本Y共有C类，那么一个节点A（属性的某个确定值）的Gini不纯度可定义为：<br>$$Gini(A)=1-\sum_{i=1}^C{p_i^2}$$<br>其中$p_i$表示属于$i$类的概率，当$Gini(A=0$时，所有样本属于同类；<br>所有类在节点中以等概率出现时，$Gini(A)$最大化，此时等于$\frac{C(C-1)}{2}$。<br><strong>我们选最小的Gini作为节点</strong><br>$$Gini(M)=\frac{|A|}{|Y|}Gini(A)+\frac{|B|}{|Y|}Gini(B)$$<br>其中，Y表示样本总数，A，B是属性M的两个值</p>
+<h2 id="3、剪枝"><a href="#3、剪枝" class="headerlink" title="3、剪枝"></a>3、剪枝</h2><h3 id="1、为什么要剪枝"><a href="#1、为什么要剪枝" class="headerlink" title="1、为什么要剪枝"></a>1、为什么要剪枝</h3><p>原因是避免决策树过拟合（Overfitting）样本。前面的算法生成的决策树非常详细并且庞大，每个属性都被详细地加以考虑，决策树的叶子节点所覆盖的训练样本都是“纯”的。因此用这个决策树来对训练样本进行分类的话，你会发现对于训练样本而言，这个树表现很好，误差率极低且能够正确的对训练样本集中的样本进行分类。训练样本中的错误数据也会被决策树学习，成为决策树的部分，但是对于测试数据的表现就没有想象的那么好，或者极差，这就是所谓的过拟合问题。在数据集中，过拟合的决策树的错误率比经过简化的决策树的错误率要高。</p>
+<h3 id="2、剪枝原理"><a href="#2、剪枝原理" class="headerlink" title="2、剪枝原理"></a>2、剪枝原理</h3><p>CART算法用的是Cost complexity prune<br>$T(i+1)$总是从$Ti$生成。</p>
+<p><img src="/CART/CART_cut.png" width="800" height="800"></p>
 
       
     </div>
@@ -458,11 +466,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/python/" rel="tag"># python</a>
+          
             <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
           
-            <a href="/tags/数据处理/" rel="tag"># 数据处理</a>
-          
-            <a href="/tags/插值/" rel="tag"># 插值</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
       
@@ -475,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/爬虫介绍/" rel="next" title="爬虫介绍">
-                <i class="fa fa-chevron-left"></i> 爬虫介绍
+              <a href="/updating/" rel="next" title="updating">
+                <i class="fa fa-chevron-left"></i> updating
               </a>
             
           </div>
@@ -484,10 +492,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/什么是数据挖掘/" rel="prev" title="什么是数据挖掘">
-                什么是数据挖掘 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -646,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、拉格朗日插值法"><span class="nav-number">1.</span> <span class="nav-text">一、拉格朗日插值法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、牛顿插值法"><span class="nav-number">2.</span> <span class="nav-text">二、牛顿插值法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、介绍ID3算法"><span class="nav-number">1.</span> <span class="nav-text">一、介绍ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、概念"><span class="nav-number">1.1.</span> <span class="nav-text">1、概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵："><span class="nav-number">1.1.1.</span> <span class="nav-text">信息熵：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息增益："><span class="nav-number">1.1.2.</span> <span class="nav-text">信息增益：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、ID3算法步骤"><span class="nav-number">1.2.</span> <span class="nav-text">2、ID3算法步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、CART决策树"><span class="nav-number">2.</span> <span class="nav-text">二、CART决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、理解"><span class="nav-number">2.1.</span> <span class="nav-text">1、理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、建树原理"><span class="nav-number">2.2.</span> <span class="nav-text">2、建树原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、如何进行划分"><span class="nav-number">2.2.1.</span> <span class="nav-text">1、如何进行划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、按照什么标准来划分？"><span class="nav-number">2.2.2.</span> <span class="nav-text">2、按照什么标准来划分？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、剪枝"><span class="nav-number">2.3.</span> <span class="nav-text">3、剪枝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、为什么要剪枝"><span class="nav-number">2.3.1.</span> <span class="nav-text">1、为什么要剪枝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、剪枝原理"><span class="nav-number">2.3.2.</span> <span class="nav-text">2、剪枝原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
