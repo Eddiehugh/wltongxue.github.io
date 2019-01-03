@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据挖掘,机器学习,神经网络,">
 
 
 
@@ -85,17 +85,27 @@
 
 
 
-<meta name="description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
-<meta name="keywords" content="数据采集 数据处理 数据挖掘">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wltongxue">
-<meta property="og:url" content="http://yoursite.com/archives/2018/12/index.html">
+<meta name="description" content="本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。">
+<meta name="keywords" content="数据挖掘,机器学习,神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LM_BP神经网络算法详解">
+<meta property="og:url" content="http://yoursite.com/LM-BP/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
+<meta property="og:description" content="本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/LM-BP/single_neutral.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/activation_func.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/three_bp.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/bp_process.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/lm1.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/lm2.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/lm3.png">
+<meta property="og:image" content="http://yoursite.com/LM-BP/lm_process.png">
+<meta property="og:updated_time" content="2019-01-03T12:25:35.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wltongxue">
-<meta name="twitter:description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
+<meta name="twitter:title" content="LM_BP神经网络算法详解">
+<meta name="twitter:description" content="本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。">
+<meta name="twitter:image" content="http://yoursite.com/LM-BP/single_neutral.png">
 
 
 
@@ -125,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/12/">
+  <link rel="canonical" href="http://yoursite.com/LM-BP/">
 
 
 
 
 
-  <title>归档 | wltongxue</title>
+  <title>LM_BP神经网络算法详解 | wltongxue</title>
   
 
 
@@ -150,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -254,177 +264,256 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/LM-BP/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wltongxue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wltongxue">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">LM_BP神经网络算法详解</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T19:37:33+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习算法/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习算法</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/LM-BP/" class="leancloud_visitors" data-flag-title="LM_BP神经网络算法详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/updating/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">updating</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  582
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-19T19:12:00+08:00" content="2018-12-19">
-          12-19
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/数据挖掘实战1-电力窃漏电用户识别/" itemprop="url">
-              
-                <span itemprop="name">数据挖掘实战1-电力窃漏电用户识别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-19T19:12:00+08:00" content="2018-12-19">
-          12-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/什么是数据挖掘/" itemprop="url">
-              
-                <span itemprop="name">什么是数据挖掘</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-10T19:27:57+08:00" content="2018-12-10">
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。<br><a id="more"></a></p>
+<h1 id="一、BP神经网络算法"><a href="#一、BP神经网络算法" class="headerlink" title="一、BP神经网络算法"></a>一、BP神经网络算法</h1><h2 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h2><p>神经网络算法实际上是一种叠加的算法，对于每一个神经元来说，对输入信号$X=[x_1,x_2,…,x_m]^T$的输出$y$为$Y=f(u+b)$，其中$u=\sum_{i=1}^m{w_ix_i}$，如图所示：<br><img src="/LM-BP/single_neutral.png" width="350" height="350"><br>这里说到激活函数，我们可以看看激活函数的种类：<br><img src="/LM-BP/activation_func.png" width="800" height="800"><br>信号每经过一个神经元就会进行模型的运算，再将结果输出给下一个神经元，一层接一层就构成了神经网络，这里展示一个三层BP的神经网络结构。<br>我们可以举个例子，比如你是否喜欢喝酒是$x_1$，你是否喜欢蹦迪是$x_2$，你是否喜欢睡觉是$x_3$，输入之后在第二层每个神经元就结合这三个元素计算了起来，最后会输出$y$代表你会不会喜欢去夜店，如果我们有一万个不同的人回答这个问题，用8000个人的回答训练这个模型，最后模型会判断剩下2000人到底会不会喜欢去夜店。当然这是一种输出，神经元也可以有多种输出。<br><strong>注意，信号是正向传播的，但误差逆向传播，因为在神经元的训练过程中，每一个神经元学习的时候会根据误差调整自己以及之前的模型参数</strong><br><img src="/LM-BP/three_bp.png" width="350" height="350"></p>
+<h2 id="2、算法过程"><a href="#2、算法过程" class="headerlink" title="2、算法过程"></a>2、算法过程</h2><p>这个算法图清晰的说明了信号正向传播训练，误差逆向修正权值。这里的学习率，误差越小，学习率也会下降，误差越大，学习率也会增大，这样是为了更快的逼近好的权值。<br><img src="/LM-BP/bp_process.png" width="800" height="800"><br>综上可以看出，基于梯度下降算法（初始阶段优化）和牛顿法（收敛快）结合的多层前馈网络，特点：迭代次数少，收敛速度快，精度高<br>LM对初值（权值、阈值）较为依赖，是BP算法的改进版，接下来我们看看LM算法改进在了哪里</p>
+<h1 id="二、LM神经网络算法"><a href="#二、LM神经网络算法" class="headerlink" title="二、LM神经网络算法"></a>二、LM神经网络算法</h1><h2 id="1、改进之处"><a href="#1、改进之处" class="headerlink" title="1、改进之处"></a>1、改进之处</h2><p><img src="/LM-BP/lm1.png" width="800" height="800"><br><img src="/LM-BP/lm2.png" width="800" height="800"><br><img src="/LM-BP/lm3.png" width="800" height="800"></p>
+<h2 id="2、算法过程-1"><a href="#2、算法过程-1" class="headerlink" title="2、算法过程"></a>2、算法过程</h2><p><img src="/LM-BP/lm_process.png" width="800" height="800"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/拉格朗日插值法/" itemprop="url">
-              
-                <span itemprop="name">拉格朗日插值法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-10T19:27:57+08:00" content="2018-12-10">
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>鼓励我一下吧，我会有更多原创的！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="wltongxue 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="wltongxue 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt="wltongxue 比特币">
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/神经网络/" rel="tag"># 神经网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/CART/" rel="next" title="ID3、CART算法">
+                <i class="fa fa-chevron-left"></i> ID3、CART算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ROC/" rel="prev" title="ROC曲线">
+                ROC曲线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -432,6 +521,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTE1Mi8xNzcwMA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -452,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -536,6 +643,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、BP神经网络算法"><span class="nav-number">1.</span> <span class="nav-text">一、BP神经网络算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、概念"><span class="nav-number">1.1.</span> <span class="nav-text">1、概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、算法过程"><span class="nav-number">1.2.</span> <span class="nav-text">2、算法过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、LM神经网络算法"><span class="nav-number">2.</span> <span class="nav-text">二、LM神经网络算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、改进之处"><span class="nav-number">2.1.</span> <span class="nav-text">1、改进之处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、算法过程-1"><span class="nav-number">2.2.</span> <span class="nav-text">2、算法过程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -689,6 +812,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -717,6 +844,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

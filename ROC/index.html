@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据挖掘,算法评估,">
 
 
 
@@ -85,17 +85,23 @@
 
 
 
-<meta name="description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
-<meta name="keywords" content="数据采集 数据处理 数据挖掘">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wltongxue">
-<meta property="og:url" content="http://yoursite.com/archives/2018/12/index.html">
+<meta name="description" content="本次学习我们将看看当一个机器算法模型训练完成后，如何使用ROC曲线来衡量它的好坏。会介绍混淆矩阵、ROC曲线如何生成。">
+<meta name="keywords" content="数据挖掘,算法评估">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROC曲线">
+<meta property="og:url" content="http://yoursite.com/ROC/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
+<meta property="og:description" content="本次学习我们将看看当一个机器算法模型训练完成后，如何使用ROC曲线来衡量它的好坏。会介绍混淆矩阵、ROC曲线如何生成。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/ROC/Confusion_matrix.png">
+<meta property="og:image" content="http://yoursite.com/ROC/roc.png">
+<meta property="og:image" content="http://yoursite.com/ROC/classification.png">
+<meta property="og:image" content="http://yoursite.com/ROC/roc_paint.png">
+<meta property="og:updated_time" content="2019-01-03T12:49:44.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wltongxue">
-<meta name="twitter:description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
+<meta name="twitter:title" content="ROC曲线">
+<meta name="twitter:description" content="本次学习我们将看看当一个机器算法模型训练完成后，如何使用ROC曲线来衡量它的好坏。会介绍混淆矩阵、ROC曲线如何生成。">
+<meta name="twitter:image" content="http://yoursite.com/ROC/Confusion_matrix.png">
 
 
 
@@ -125,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/12/">
+  <link rel="canonical" href="http://yoursite.com/ROC/">
 
 
 
 
 
-  <title>归档 | wltongxue</title>
+  <title>ROC曲线 | wltongxue</title>
   
 
 
@@ -150,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -254,177 +260,256 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ROC/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wltongxue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wltongxue">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">ROC曲线</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T20:23:01+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习算法/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习算法</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/ROC/" class="leancloud_visitors" data-flag-title="ROC曲线">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/updating/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">updating</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  627
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-19T19:12:00+08:00" content="2018-12-19">
-          12-19
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/数据挖掘实战1-电力窃漏电用户识别/" itemprop="url">
-              
-                <span itemprop="name">数据挖掘实战1-电力窃漏电用户识别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-19T19:12:00+08:00" content="2018-12-19">
-          12-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/什么是数据挖掘/" itemprop="url">
-              
-                <span itemprop="name">什么是数据挖掘</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-10T19:27:57+08:00" content="2018-12-10">
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>本次学习我们将看看当一个机器算法模型训练完成后，如何使用ROC曲线来衡量它的好坏。会介绍混淆矩阵、ROC曲线如何生成。<br><a id="more"></a></p>
+<h1 id="一、混淆矩阵"><a href="#一、混淆矩阵" class="headerlink" title="一、混淆矩阵"></a>一、混淆矩阵</h1><p>对于二分类来说，混淆矩阵就分为四个模块：<br>结果为“真”的分对了就是True Positives；<br>结果为“真”的分错了就是False Positives；<br>结果为“假”的分对了就是True Negatives；<br>结果为“假”的分错了就是False Negatives；<br>这个还是比较容易混乱，大家就记住“True”就代表分队了，“False”就代表分错了.如下图所示，我们还能够获得fp rate、tp rate、precision、recall、accuracy、F-measure的计算过程：<br><img src="/ROC/Confusion_matrix.png" width="800" height="800"></p>
+<h1 id="二、ROC曲线图"><a href="#二、ROC曲线图" class="headerlink" title="二、ROC曲线图"></a>二、ROC曲线图</h1><h2 id="1、理解ROC"><a href="#1、理解ROC" class="headerlink" title="1、理解ROC"></a>1、理解ROC</h2><p>于是，由于：$FPrate=\frac{FP}{FP+TN}$，$TPrate=\frac{TP}{TP+FN}$，可画出下面的ROC曲线图：<br><img src="/ROC/roc.png" width="400" height="400"><br>接下来我们来解释一下这个图：</p>
+<p><1>第一个点(0,1)，即FP_rate=0,TP_rate=1,这意味着FN（false negative）=0,并且FP（false positive）=0。这是一个完美的分类器，它将所有的样本都正确分类。</1></p>
+<p><2>第二个点(1,0)，即FP_rate=1,TP_rate=0,类似地分析可以发现这是一个最糟糕的分类器，因为它成功的避开了所有正确答案。</2></p>
+<p><3>第三个点(0,0)，即FP_rate=TP_rate=0，即FP（false positive）=TP（true positive）=0，可以发现该分类器预测所有的样本都为负样本（negative）</3></p>
+<p><4>第四个点(1,1)，分类器预测所有的样本都为正样本。<br>经以上分析，可以发现，ROC曲线越接近左上角，该分类器的性能越好。</4></p>
+<blockquote>
+<p>问题：对于一个特定的分类器和测试数据集，显然只能得到一个分类混淆矩阵，即ROC线上的一个点，若要一系列的点怎么办？</p>
+</blockquote>
+<h2 id="2、绘制ROC"><a href="#2、绘制ROC" class="headerlink" title="2、绘制ROC"></a>2、绘制ROC</h2><p>举个例子<br><img src="/ROC/classification.png" width="400" height="400"><br>接下来，我们从高到低，依次将“Score”值作为阈值threshold，当测试样本属于正样本的概率大于或等于这个threshold时，我们认为它为正样本，否则为负样本。举例来说，对于图中的第4个样本，其“Score”值为0.6，那么样本1，2，3，4都被认为是正样本，因为它们的“Score”值都大于等于0.6，而其他样本则都认为是负样本。<br><strong>每次选取一个不同的threshold，我们就可以得到一组FPR和TPR，即ROC曲线上的一点。这样一来，我们一共得到了20组FPR和TPR的值</strong><br>画出ROC图：<br><img src="/ROC/roc_paint.png" width="600" height="600"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/拉格朗日插值法/" itemprop="url">
-              
-                <span itemprop="name">拉格朗日插值法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-10T19:27:57+08:00" content="2018-12-10">
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>鼓励我一下吧，我会有更多原创的！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="wltongxue 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="wltongxue 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt="wltongxue 比特币">
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+            <a href="/tags/算法评估/" rel="tag"># 算法评估</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/LM-BP/" rel="next" title="LM_BP神经网络算法详解">
+                <i class="fa fa-chevron-left"></i> LM_BP神经网络算法详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -432,6 +517,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTE1Mi8xNzcwMA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -452,8 +546,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -536,6 +639,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、混淆矩阵"><span class="nav-number">1.</span> <span class="nav-text">一、混淆矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、ROC曲线图"><span class="nav-number">2.</span> <span class="nav-text">二、ROC曲线图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、理解ROC"><span class="nav-number">2.1.</span> <span class="nav-text">1、理解ROC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、绘制ROC"><span class="nav-number">2.2.</span> <span class="nav-text">2、绘制ROC</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -689,6 +808,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -717,6 +840,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-02T12:21:18.239Z</updated>
+  <updated>2019-01-03T12:49:44.524Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ROC曲线</title>
+    <link href="http://yoursite.com/ROC/"/>
+    <id>http://yoursite.com/ROC/</id>
+    <published>2019-01-03T12:23:01.000Z</published>
+    <updated>2019-01-03T12:49:44.524Z</updated>
+    
+    <content type="html"><![CDATA[<p>本次学习我们将看看当一个机器算法模型训练完成后，如何使用ROC曲线来衡量它的好坏。会介绍混淆矩阵、ROC曲线如何生成。<br><a id="more"></a></p><h1 id="一、混淆矩阵"><a href="#一、混淆矩阵" class="headerlink" title="一、混淆矩阵"></a>一、混淆矩阵</h1><p>对于二分类来说，混淆矩阵就分为四个模块：<br>结果为“真”的分对了就是True Positives；<br>结果为“真”的分错了就是False Positives；<br>结果为“假”的分对了就是True Negatives；<br>结果为“假”的分错了就是False Negatives；<br>这个还是比较容易混乱，大家就记住“True”就代表分队了，“False”就代表分错了.如下图所示，我们还能够获得fp rate、tp rate、precision、recall、accuracy、F-measure的计算过程：<br><img src="/ROC/Confusion_matrix.png" width="800" height="800"></p><h1 id="二、ROC曲线图"><a href="#二、ROC曲线图" class="headerlink" title="二、ROC曲线图"></a>二、ROC曲线图</h1><h2 id="1、理解ROC"><a href="#1、理解ROC" class="headerlink" title="1、理解ROC"></a>1、理解ROC</h2><p>于是，由于：$FPrate=\frac{FP}{FP+TN}$，$TPrate=\frac{TP}{TP+FN}$，可画出下面的ROC曲线图：<br><img src="/ROC/roc.png" width="400" height="400"><br>接下来我们来解释一下这个图：</p><p><1>第一个点(0,1)，即FP_rate=0,TP_rate=1,这意味着FN（false negative）=0,并且FP（false positive）=0。这是一个完美的分类器，它将所有的样本都正确分类。</1></p><p><2>第二个点(1,0)，即FP_rate=1,TP_rate=0,类似地分析可以发现这是一个最糟糕的分类器，因为它成功的避开了所有正确答案。</2></p><p><3>第三个点(0,0)，即FP_rate=TP_rate=0，即FP（false positive）=TP（true positive）=0，可以发现该分类器预测所有的样本都为负样本（negative）</3></p><p><4>第四个点(1,1)，分类器预测所有的样本都为正样本。<br>经以上分析，可以发现，ROC曲线越接近左上角，该分类器的性能越好。</4></p><blockquote><p>问题：对于一个特定的分类器和测试数据集，显然只能得到一个分类混淆矩阵，即ROC线上的一个点，若要一系列的点怎么办？</p></blockquote><h2 id="2、绘制ROC"><a href="#2、绘制ROC" class="headerlink" title="2、绘制ROC"></a>2、绘制ROC</h2><p>举个例子<br><img src="/ROC/classification.png" width="400" height="400"><br>接下来，我们从高到低，依次将“Score”值作为阈值threshold，当测试样本属于正样本的概率大于或等于这个threshold时，我们认为它为正样本，否则为负样本。举例来说，对于图中的第4个样本，其“Score”值为0.6，那么样本1，2，3，4都被认为是正样本，因为它们的“Score”值都大于等于0.6，而其他样本则都认为是负样本。<br><strong>每次选取一个不同的threshold，我们就可以得到一组FPR和TPR，即ROC曲线上的一点。这样一来，我们一共得到了20组FPR和TPR的值</strong><br>画出ROC图：<br><img src="/ROC/roc_paint.png" width="600" height="600"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本次学习我们将看看当一个机器算法模型训练完成后，如何使用ROC曲线来衡量它的好坏。会介绍混淆矩阵、ROC曲线如何生成。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习算法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="算法评估" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E8%AF%84%E4%BC%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LM_BP神经网络算法详解</title>
+    <link href="http://yoursite.com/LM-BP/"/>
+    <id>http://yoursite.com/LM-BP/</id>
+    <published>2019-01-03T11:37:33.000Z</published>
+    <updated>2019-01-03T12:25:35.985Z</updated>
+    
+    <content type="html"><![CDATA[<p>本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。<br><a id="more"></a></p><h1 id="一、BP神经网络算法"><a href="#一、BP神经网络算法" class="headerlink" title="一、BP神经网络算法"></a>一、BP神经网络算法</h1><h2 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h2><p>神经网络算法实际上是一种叠加的算法，对于每一个神经元来说，对输入信号$X=[x_1,x_2,…,x_m]^T$的输出$y$为$Y=f(u+b)$，其中$u=\sum_{i=1}^m{w_ix_i}$，如图所示：<br><img src="/LM-BP/single_neutral.png" width="350" height="350"><br>这里说到激活函数，我们可以看看激活函数的种类：<br><img src="/LM-BP/activation_func.png" width="800" height="800"><br>信号每经过一个神经元就会进行模型的运算，再将结果输出给下一个神经元，一层接一层就构成了神经网络，这里展示一个三层BP的神经网络结构。<br>我们可以举个例子，比如你是否喜欢喝酒是$x_1$，你是否喜欢蹦迪是$x_2$，你是否喜欢睡觉是$x_3$，输入之后在第二层每个神经元就结合这三个元素计算了起来，最后会输出$y$代表你会不会喜欢去夜店，如果我们有一万个不同的人回答这个问题，用8000个人的回答训练这个模型，最后模型会判断剩下2000人到底会不会喜欢去夜店。当然这是一种输出，神经元也可以有多种输出。<br><strong>注意，信号是正向传播的，但误差逆向传播，因为在神经元的训练过程中，每一个神经元学习的时候会根据误差调整自己以及之前的模型参数</strong><br><img src="/LM-BP/three_bp.png" width="350" height="350"></p><h2 id="2、算法过程"><a href="#2、算法过程" class="headerlink" title="2、算法过程"></a>2、算法过程</h2><p>这个算法图清晰的说明了信号正向传播训练，误差逆向修正权值。这里的学习率，误差越小，学习率也会下降，误差越大，学习率也会增大，这样是为了更快的逼近好的权值。<br><img src="/LM-BP/bp_process.png" width="800" height="800"><br>综上可以看出，基于梯度下降算法（初始阶段优化）和牛顿法（收敛快）结合的多层前馈网络，特点：迭代次数少，收敛速度快，精度高<br>LM对初值（权值、阈值）较为依赖，是BP算法的改进版，接下来我们看看LM算法改进在了哪里</p><h1 id="二、LM神经网络算法"><a href="#二、LM神经网络算法" class="headerlink" title="二、LM神经网络算法"></a>二、LM神经网络算法</h1><h2 id="1、改进之处"><a href="#1、改进之处" class="headerlink" title="1、改进之处"></a>1、改进之处</h2><p><img src="/LM-BP/lm1.png" width="800" height="800"><br><img src="/LM-BP/lm2.png" width="800" height="800"><br><img src="/LM-BP/lm3.png" width="800" height="800"></p><h2 id="2、算法过程-1"><a href="#2、算法过程-1" class="headerlink" title="2、算法过程"></a>2、算法过程</h2><p><img src="/LM-BP/lm_process.png" width="800" height="800"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习算法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="神经网络" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ID3、CART算法</title>
     <link href="http://yoursite.com/CART/"/>
     <id>http://yoursite.com/CART/</id>
     <published>2019-01-02T11:06:52.000Z</published>
-    <updated>2019-01-02T12:21:18.239Z</updated>
+    <updated>2019-01-03T12:25:43.781Z</updated>
     
     <content type="html"><![CDATA[<p>本次学习我们将详细介绍什么是CART决策树算法，以及它的前身ID3算法。介绍所涉及到的概念，算法的原理和步骤。<br><a id="more"></a></p><h1 id="一、介绍ID3算法"><a href="#一、介绍ID3算法" class="headerlink" title="一、介绍ID3算法"></a>一、介绍ID3算法</h1><h2 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h2><h3 id="信息熵："><a href="#信息熵：" class="headerlink" title="信息熵："></a>信息熵：</h3><p>用来度量一个属性的信息量。<br>假定S为训练集，S的目标属性C具有m个可能的类标号值，$C={C_1,C_2,…,C_m}$，假定训练集S中，$C_i$在所有样本中出现的频率为$P_i(i=1,2,3,…,m)$，则该训练集S所包含的信息熵定义为：<br>$$Entropy(S = Entropy(p_i,p_2,…,p_m) = -{\sum_{i=1}^m}{p_ilog_2p_i}$$<br>熵越小表示样本对目标属性的分布越纯，反之熵越大表示样本对目标属性分布越混乱。</p><h3 id="信息增益："><a href="#信息增益：" class="headerlink" title="信息增益："></a>信息增益：</h3><p>信息增益是划分前呀根本数据的熵和划分后样本数据集的熵的差值<br>假设划分前样本数据集为S，并用属性A来划分样本集S，则按属性A划分S的信息增益$Gain(S,A)$为样本集S的熵减去按属性A划分S后的样本自己的熵：<br>$$Gain(S,A)=Entropy(S)-Entropy_A(S)$$<br>按属性A划分S后的样本自己的熵定义如下：假定属性A有k个不同的取值，从而将S划分为k个样本子集${S_1,S_2,…,S_k}$，则按属性A划分S后的样本子集的信息熵为：<br>$$Entropy_A(S)={\sum_{i=1}^k}\frac{|S_i|}{|S|}Entropy(S_i)$$<br>其中$|S_i|(i=1,2,…,k)$为样本子集$S_i$中包含的样本数，$|S|$为样本集S中包含的样本数。信息增益越大，说明使用属性A划分后的样本子集越纯，越有利于分类。</p><blockquote><p>问题：用哪个属性最适合充当根节点？答：选择信息增益最大的。</p></blockquote><h2 id="2、ID3算法步骤"><a href="#2、ID3算法步骤" class="headerlink" title="2、ID3算法步骤"></a>2、ID3算法步骤</h2><p>ID3算法的具体详细实现步骤如下。<br>1）对当前样本集合，计算所有属性的信息增益；<br>2）选择信息增益最大的属性作为测试属性，把测试属性取值相同的样本划为同一个子样本集；<br>3）若子样本集的类别属性只含有单个属性，则分支为叶子节点，判断其属性值并标上相应的符号，然后返回调用处；否则对子样本集递归调用本算法。<br>其核心是在决策树的各级节点上，使用信息增益方法作为属性的选择标准，来帮助确定生成每个节点时所应采用的合适属性。即选择合适的属性节点及其顺序来构建决策树。</p><h1 id="二、CART决策树"><a href="#二、CART决策树" class="headerlink" title="二、CART决策树"></a>二、CART决策树</h1><h2 id="1、理解"><a href="#1、理解" class="headerlink" title="1、理解"></a>1、理解</h2><p>它既是回归树，又是分类树，但它是二叉树。ID3只能分类。<br>CART算法是一种二分递归分割技术，把当前样本划分为两个子样本，使得生成的每个非叶子节点都有两个分支，因此CART算法生成的决策树是结构简洁的二叉树。由于CART算法构成的是一个二叉树，它在每一步的决策时只能选择“是”或者“否”，即使一个feature有多个取值，也就是把数据分为两部分。在CART算法中主要分为两个步骤：<br>（1）将样本递归划分进行建树的过程<br>（2）用验证数据进行剪枝</p><h2 id="2、建树原理"><a href="#2、建树原理" class="headerlink" title="2、建树原理"></a>2、建树原理</h2><h3 id="1、如何进行划分"><a href="#1、如何进行划分" class="headerlink" title="1、如何进行划分"></a>1、如何进行划分</h3><p>属性是按照顺序一层层，着重划分属性值，注意，这里选的是属性值，而不是选属性。<br>设$x_1,x_2,…x_n$代表单个样本的$n$个属性，$y$表示所属类别。CART算法通过递归的方式将n维的空间划分为不重叠的矩形，划分步骤大致如下：<br>（1）选一个自变量$x_i$，再选取$x_i$的一个值$v_i$，$v_i$把$n$维空间划分为两部分，一部分的所有点都满足$x_i{\leq}v_i$，另一部分的所有点满足$x_i&gt;v_i$，对非连续变量来说属性值的取值只有两个，即等于该值或不等于该值。<br>（2）递归处理，将上面得到的两部分按照步骤（1）重新选取一个属性继续划分，知道把整个$n$维空间都划分完。</p><h3 id="2、按照什么标准来划分？"><a href="#2、按照什么标准来划分？" class="headerlink" title="2、按照什么标准来划分？"></a>2、按照什么标准来划分？</h3><p>每个属性的划分按照能减少的杂质的量来进行排序，而杂质的减少量定义为划分前的杂质减去划分后的每个节点的杂质量划分所占比率之和。而杂质度量方法常用$Gini指标$，假设一个样本Y共有C类，那么一个节点A（属性的某个确定值）的Gini不纯度可定义为：<br>$$Gini(A)=1-\sum_{i=1}^C{p_i^2}$$<br>其中$p_i$表示属于$i$类的概率，当$Gini(A=0$时，所有样本属于同类；<br>所有类在节点中以等概率出现时，$Gini(A)$最大化，此时等于$\frac{C(C-1)}{2}$。<br><strong>我们选最小的Gini作为节点</strong><br>$$Gini(M)=\frac{|A|}{|Y|}Gini(A)+\frac{|B|}{|Y|}Gini(B)$$<br>其中，Y表示样本总数，A，B是属性M的两个值</p><h2 id="3、剪枝"><a href="#3、剪枝" class="headerlink" title="3、剪枝"></a>3、剪枝</h2><h3 id="1、为什么要剪枝"><a href="#1、为什么要剪枝" class="headerlink" title="1、为什么要剪枝"></a>1、为什么要剪枝</h3><p>原因是避免决策树过拟合（Overfitting）样本。前面的算法生成的决策树非常详细并且庞大，每个属性都被详细地加以考虑，决策树的叶子节点所覆盖的训练样本都是“纯”的。因此用这个决策树来对训练样本进行分类的话，你会发现对于训练样本而言，这个树表现很好，误差率极低且能够正确的对训练样本集中的样本进行分类。训练样本中的错误数据也会被决策树学习，成为决策树的部分，但是对于测试数据的表现就没有想象的那么好，或者极差，这就是所谓的过拟合问题。在数据集中，过拟合的决策树的错误率比经过简化的决策树的错误率要高。</p><h3 id="2、剪枝原理"><a href="#2、剪枝原理" class="headerlink" title="2、剪枝原理"></a>2、剪枝原理</h3><p>CART算法用的是Cost complexity prune<br>$T(i+1)$总是从$Ti$生成。</p><p><img src="/CART/CART_cut.png" width="800" height="800"></p>]]></content>
     
@@ -33,8 +83,6 @@
     
       <category term="机器学习算法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"/>
     
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
     
@@ -81,9 +129,9 @@
       <category term="数据挖掘实战讲解系列" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%AE%9E%E6%88%98%E8%AE%B2%E8%A7%A3%E7%B3%BB%E5%88%97/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="分类预测问题" scheme="http://yoursite.com/tags/%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B%E9%97%AE%E9%A2%98/"/>
     
@@ -107,9 +155,9 @@
       <category term="数据挖掘实战讲解系列" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%AE%9E%E6%88%98%E8%AE%B2%E8%A7%A3%E7%B3%BB%E5%88%97/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
