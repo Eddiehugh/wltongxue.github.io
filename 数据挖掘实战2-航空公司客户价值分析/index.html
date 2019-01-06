@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据挖掘,python,聚类问题,">
 
 
 
@@ -85,18 +85,27 @@
 
 
 
-<meta name="description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
-<meta name="keywords" content="数据采集 数据处理 数据挖掘">
+<meta name="description" content="本次学习我们仍然遵循“什么是数据挖掘”文章中的研究方法对航空公司消费客户进行聚类。本章学习重点是如何标准化处理数据，使用k-means聚类，明白聚类和分类的区别。">
+<meta name="keywords" content="数据挖掘,python,聚类问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据挖掘实战2-航空公司客户价值分析">
 <meta property="og:url" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
+<meta property="og:description" content="本次学习我们仍然遵循“什么是数据挖掘”文章中的研究方法对航空公司消费客户进行聚类。本章学习重点是如何标准化处理数据，使用k-means聚类，明白聚类和分类的区别。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-05T09:07:38.627Z">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/metadata.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/attribute_means.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/LRFMC.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/zscore_data.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/process.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/k-means_result.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/analysis.png">
+<meta property="og:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/class_result.png">
+<meta property="og:updated_time" content="2019-01-06T12:45:49.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘实战2-航空公司客户价值分析">
-<meta name="twitter:description" content="wltongxue的个人网站，希望给大家提供解决问题的方法和思考问题的模式。">
+<meta name="twitter:description" content="本次学习我们仍然遵循“什么是数据挖掘”文章中的研究方法对航空公司消费客户进行聚类。本章学习重点是如何标准化处理数据，使用k-means聚类，明白聚类和分类的区别。">
+<meta name="twitter:image" content="http://yoursite.com/数据挖掘实战2-航空公司客户价值分析/metadata.png">
 
 
 
@@ -309,6 +318,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据挖掘实战讲解系列/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘实战讲解系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -341,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  2.2k
                 </span>
               
 
@@ -357,7 +388,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  8
                 </span>
               
             </div>
@@ -378,7 +409,25 @@
       
 
       
-        
+        <p>本次学习我们仍然遵循“什么是数据挖掘”文章中的研究方法对航空公司消费客户进行聚类。本章学习重点是如何标准化处理数据，使用k-means聚类，明白聚类和分类的区别。<br><a id="more"></a></p>
+<blockquote>
+<p>问题背景：假设你是航空公司的，如何针对不同的顾客进行活动的推销，维持经常飞行的顾客，吸引新的顾客。这就需要我们对顾客进行聚类，那么什么是聚类，为什么不叫分类。因为分类是有监督的学习，聚类是无监督的学习。我们可以对比实战1，可以发现在实战1中我们的数据里明确是有分类的结果供模型去学习的（两个分类结果，一个是偷电用户，一个是非偷电用户），但是本章学习中我们并不清楚我们都有哪几类用户，要把数据分为哪几类。所以一个是分类，一个是聚类。</p>
+</blockquote>
+<h1 id="一、挖掘目标"><a href="#一、挖掘目标" class="headerlink" title="一、挖掘目标"></a>一、挖掘目标</h1><p>1、借助航空公司客户数据，对客户进行聚类<br>2、对不同的客户类别进行特征分析，比较不同类别的客户价值</p>
+<h1 id="二、数据抽取"><a href="#二、数据抽取" class="headerlink" title="二、数据抽取"></a>二、数据抽取</h1><p>1、客户个人信息，包括会员卡号、入会时间、性别、年龄等<br>2、客户乘机记录，包括，飞行次数、飞行时间、乘机间隔、平均折扣等<br>如图是实际采集的数据：<br><img src="/数据挖掘实战2-航空公司客户价值分析/metadata.png" width="800" height="800"><br>属性值意义参考表：<br><img src="/数据挖掘实战2-航空公司客户价值分析/attribute_means.png" width="800" height="800"></p>
+<h1 id="三、数据探索：统计分析"><a href="#三、数据探索：统计分析" class="headerlink" title="三、数据探索：统计分析"></a>三、数据探索：统计分析</h1><p>1、对数据进行缺失值分析与异常值分析<br>2、查找每列属性的空值个数、最大值、最小值<br>使用python进行数据的统计，源码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#对数据进行基本的探索</span></span><br><span class="line"><span class="comment">#返回缺失值个数以及最大最小值</span></span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">datafile=<span class="string">'../data/air_data.csv'</span> <span class="comment">#航空原始数据，第一行为属性标签</span></span><br><span class="line">result_file=<span class="string">'../tmp/explore.xls'</span><span class="comment">#数据探索结果表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取原始数据，指定UTF-8编码（需要用文本编辑器将数据转换为UTF-8编码）</span></span><br><span class="line">data=pd.read_csv(datafile,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment">#包括对数据的基本描述，</span></span><br><span class="line"><span class="comment">#percentiles参数是指定计算多少的分位数表（如1/4分位数，中位数等）;</span></span><br><span class="line"><span class="comment">#T是转置，转置后更方便查阅</span></span><br><span class="line">explore=data.describe(percentiles= [],include=<span class="string">'all'</span>).T</span><br><span class="line"><span class="comment">#describe()函数自动计算非空值数，需要手动计算空值数</span></span><br><span class="line">explore[<span class="string">'null'</span>]=len(data)-explore[<span class="string">'count'</span>]</span><br><span class="line"></span><br><span class="line">explore=explore[[<span class="string">'null'</span>,<span class="string">'max'</span>,<span class="string">'min'</span>]]</span><br><span class="line">explore.columns = [u<span class="string">'空值表'</span>,u<span class="string">'最大值'</span>,u<span class="string">'最小值'</span>]<span class="comment">#表头重命名</span></span><br><span class="line"><span class="string">''</span><span class="string">'这里只选取部分探索结果。</span></span><br><span class="line"><span class="string">dscribe()函数自动计算的字段有count(非空值表),unique(唯一值数),top(频数最高者),</span></span><br><span class="line"><span class="string">    freq(最高频数)、mean(平均值),std(方差),min(最小值),50%(中位数),max(最大值)'</span><span class="string">''</span></span><br><span class="line">explore.to_excel(result_file)<span class="comment">#导出结果</span></span><br><span class="line">``` </span><br><span class="line">统计结果如下:</span><br><span class="line">&lt;img src=<span class="string">"explore.png"</span> width=800 height=800 /&gt;</span><br><span class="line"><span class="comment"># 四、数据预处理</span></span><br><span class="line"><span class="comment">## 1、数据清洗</span></span><br><span class="line">1、丢弃票价为空的记录</span><br><span class="line">2、丢弃票价为0，但平均折扣率不为0，总飞行公里数大于0的记录。（脏数据）</span><br><span class="line">python进行如上数据清洗:</span><br><span class="line">```bash</span><br><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#数据清洗，过滤掉不符合规则的数据</span></span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">datafile=<span class="string">'../data/air_data.csv'</span><span class="comment">#航空原始数据，第一行为属性标签</span></span><br><span class="line">cleanedfile=<span class="string">'../tmp/data_cleanedxls'</span><span class="comment">#数据清洗后保存的文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取原始数据,指定UTF-8编码（需要用文本编辑器将数据转换为UTF-8编码）</span></span><br><span class="line">data=pd.read_csv(datafile,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">data=data[data[<span class="string">'SUM_YR_1'</span>].notnull()&amp;data[<span class="string">'SUM_YR_2'</span>].notnull()]<span class="comment">#票价非空值才保留</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#只保留票价非零的，或者 平均折扣率与总飞行数为0的记录</span></span><br><span class="line"><span class="comment">#若票价为0，则折扣和飞行数也应为0，这样的记录也保留</span></span><br><span class="line">index1=data[<span class="string">'SUM_YR_1'</span>]!=0</span><br><span class="line">index2=data[<span class="string">'SUM_YR_2'</span>]!=0</span><br><span class="line">index3=(data[<span class="string">'SEG_KM_SUM'</span>]==0)&amp;(data[<span class="string">'avg_discount'</span>]==0)<span class="comment">#该规则是与</span></span><br><span class="line">data=data[index1|index2] <span class="comment">#该规则是或</span></span><br><span class="line"></span><br><span class="line">data.to_excel(cleanedfile)<span class="comment">#导出结果</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2、数据规约"><a href="#2、数据规约" class="headerlink" title="2、数据规约"></a>2、数据规约</h2><p>原始数据属性太多，我们使用LRFMC模型，选择6个与LRFMC模型相关属性指标，以供接下来构造LRFMC模型。如下图所示：<br> <img src="/数据挖掘实战2-航空公司客户价值分析/LRFMC.png" width="800" height="800"></p>
+<h2 id="3、数据变换"><a href="#3、数据变换" class="headerlink" title="3、数据变换"></a>3、数据变换</h2><ul>
+<li>1、构建LRFMC这五个指标如下公式（都在观测窗口(某个约定的时间段)内进行计算）:<br>（1）会员入会时间：L=LOAD_TIME-FPP_DATE<br>（2）最后一次乘车时间到结束的月数：R=LAST_TO_END<br>（3）飞行次数：F=FLIGHT_COUNT<br>（4）总飞行公里数：M=SEG_KM_SUM<br>（5）平均折扣率C=AVG_DISCOUNT</li>
+<li>2、由数据探索时候，统计可知，这5个指标实际上取值范围相差较大。我们一般为了消除数量级数据带来的影响，需要对数据进行标准化处理(详情请<a href="https://wltongxue.github.io/updating/" target="_blank" rel="noopener">点击这里</a>)。<br>python实现数据标准化：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#标准差标准化</span></span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">datafile=<span class="string">'../data/zscoredata.xls'</span><span class="comment">#需要进行标准化的数据文件</span></span><br><span class="line">zscoredfile=<span class="string">'../tmp/zscoreddata.xls'</span><span class="comment">#标准差化后的数据存储路径文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#标准化处理</span></span><br><span class="line">data=pd.read_excel(datafile)</span><br><span class="line"><span class="comment">#简洁的语句实现了标准化变换，</span></span><br><span class="line"><span class="comment">#类似地可以实现任何想要的变换</span></span><br><span class="line">data=(data-data.mean(axis=0))/(data.std(axis=0))</span><br><span class="line"></span><br><span class="line">data.columns=[<span class="string">'Z'</span>+i <span class="keyword">for</span> i <span class="keyword">in</span> data.columns] <span class="comment">#表头重命名</span></span><br><span class="line"></span><br><span class="line">data.to_excel(zscoredfile,index=False)<span class="comment">#数据写入</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由上面两步，一个属性规约，一个数据标准化后，得到的数据如下图所示：<br> <img src="/数据挖掘实战2-航空公司客户价值分析/zscore_data.png" width="800" height="800"></p>
+<h1 id="五、模型构建"><a href="#五、模型构建" class="headerlink" title="五、模型构建"></a>五、模型构建</h1><p>到此为止，我们已经获取到相对适合处理的干净数据了，本步我们选用k-means聚类算法(详情<a href="https://wltongxue.github.io/updating/" target="_blank" rel="noopener">请点击这里</a>)进行聚类。实际上聚类完成后我们会获取到每一类的中心，这个时候我们可以把它保存下来，可以用来分类未知的增量数据。<br>我们进行聚类的整体过程如下图，用历史数据进行K-means聚类获得聚类的中心点，然后再用增量数据在中心点上进行分类，这里简单提一下。聚类实际上用的就是距离相近的属于一类。<br><img src="/数据挖掘实战2-航空公司客户价值分析/process.png" width="800" height="800"><br>按照上面的步骤我们对数据进行python聚类：<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'ISO-8859-1'</span>)</span><br><span class="line"><span class="comment">#K-means聚类算法</span></span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">from sklearn.cluster import KMeans <span class="comment">#导入K均值聚类算法（欧式距离）</span></span><br><span class="line"></span><br><span class="line">inputfile=<span class="string">'../tmp/zscoreddata.xls'</span><span class="comment">#待聚类的数据文件</span></span><br><span class="line">outputfile=<span class="string">'../tmp/kmeans_result.xls'</span></span><br><span class="line"></span><br><span class="line">k=5 <span class="comment">#需要进行的聚类类别数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取数据并进行聚类分析</span></span><br><span class="line">data=pd.read_excel(inputfile)<span class="comment">#读取数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#调用K-means算法，进行聚类分析</span></span><br><span class="line">kmodel=KMeans(n_clusters=k,n_jobs=4)<span class="comment">#n_jobs是并行数，一般等于CPU数比较好</span></span><br><span class="line">kmodel.fit(data)<span class="comment">#训练模型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#详细输出客户聚类结果</span></span><br><span class="line">r1=pd.Series(kmodel.labels_).value_counts() <span class="comment">#统计各个类别的数目</span></span><br><span class="line">r2=pd.DataFrame(kmodel.cluster_centers_)<span class="comment">#找出聚类中心</span></span><br><span class="line">r=pd.concat([r2,r1],axis=1) <span class="comment">#横向连接（0是纵向），得到聚类中心对应的类别下的数目</span></span><br><span class="line">r.columns=list(data.columns)+[u<span class="string">'类别数目'</span>] <span class="comment">#重命名表头</span></span><br><span class="line">r.to_excel(outputfile)<span class="comment">#保存结果</span></span><br></pre></td></tr></table></figure></p>
+<p>我们这里设置聚类的数量为5类，然后会得到每一个属性每一类的聚类中心值，如下图：<br><img src="/数据挖掘实战2-航空公司客户价值分析/k-means_result.png" width="800" height="800"></p>
+<h1 id="六、特征分析"><a href="#六、特征分析" class="headerlink" title="六、特征分析"></a>六、特征分析</h1><p>为了便于可视化分析，我们使用python将结果绘制成雷达图(接上面的代码)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#绘制雷达图</span></span><br><span class="line">import matplotlib.pyplot as plt <span class="comment">#包含画图工具</span></span><br><span class="line">import numpy as np</span><br><span class="line"><span class="comment">#设置ggplot的绘画风格</span></span><br><span class="line">plt.style.use(<span class="string">'ggplot'</span>)</span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=<span class="string">'simkai'</span><span class="comment">#用来正常显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = False <span class="comment">#用来正常显示负号</span></span><br><span class="line"><span class="comment">#标签</span></span><br><span class="line">labels=np.array(data.columns)</span><br><span class="line"><span class="comment">#数据个数</span></span><br><span class="line">dataLenth=5</span><br><span class="line">N=len(r2)</span><br><span class="line">angles=np.linspace(0,2*np.pi,N,endpoint=False)</span><br><span class="line">data=pd.concat([r2,r2.ix[:,0]],axis=1)</span><br><span class="line">angles=np.concatenate((angles,[angles[0]]))<span class="comment">#使雷达图一圈封闭起来</span></span><br><span class="line"></span><br><span class="line">fig=plt.figure(figsize=(6,6))</span><br><span class="line">ax=fig.add_subplot(111,polar=True)<span class="comment">#这里一定要设置为极坐标格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):</span><br><span class="line">    j=i+1</span><br><span class="line">    ax.plot(angles,data.ix[i,:],<span class="string">'o-'</span>,linewidth=2,label=<span class="string">"Customers&#123;0&#125;"</span>.format(j))<span class="comment">#画线</span></span><br><span class="line"></span><br><span class="line">ax.set_thetagrids(angles *180/np.pi,labels)<span class="comment">#添加每个特征的标签</span></span><br><span class="line">ax.set_title(<span class="string">"Customers Analysis"</span>,va=<span class="string">'bottom'</span>,fontproperties=<span class="string">"SimHei"</span>)<span class="comment">#添加标题</span></span><br><span class="line">ax.set_rlim(-1,2.5)<span class="comment">#设置雷达图范围</span></span><br><span class="line">ax.grid(True)<span class="comment">#添加网格</span></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<p>雷达图如下：<br><img src="/数据挖掘实战2-航空公司客户价值分析/analysis.png" width="800" height="800"><br>根据特征描述表，定义5种客户：<br>1、重要保持客户：<br>    平均折扣率(C)较高，最近乘坐航班时间(R)低，乘坐次数(M)或者里程(M)较高<br>2、重要发展客户：<br>    平均折扣率(C)较高，最近乘坐航班时间(R)低，但入会时间(L)短，乘坐次数(F)或乘坐里程(M较低)<br>3、重要挽留客户：<br>    过去平均折扣率(C)较高，乘坐次数(F)或里程(M)较高，但长时间没有乘坐(R)<br>4、一般与低价值客户<br>    平均折扣率(C)较低，较长时间没有乘坐本航班(R)，乘坐次数h(F)或里程(M)较低，入会时间短(L)<br><img src="/数据挖掘实战2-航空公司客户价值分析/class_result.png" width="800" height="800"></p>
+
       
     </div>
     
@@ -426,6 +475,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/聚类问题/" rel="tag"># 聚类问题</a>
+          
+        </div>
       
 
       
@@ -500,8 +559,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -538,7 +606,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -584,6 +652,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、挖掘目标"><span class="nav-number">1.</span> <span class="nav-text">一、挖掘目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、数据抽取"><span class="nav-number">2.</span> <span class="nav-text">二、数据抽取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、数据探索：统计分析"><span class="nav-number">3.</span> <span class="nav-text">三、数据探索：统计分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2、数据规约"><span class="nav-number">3.1.</span> <span class="nav-text">2、数据规约</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、数据变换"><span class="nav-number">3.2.</span> <span class="nav-text">3、数据变换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、模型构建"><span class="nav-number">4.</span> <span class="nav-text">五、模型构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、特征分析"><span class="nav-number">5.</span> <span class="nav-text">六、特征分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
