@@ -85,18 +85,21 @@
 
 
 
-<meta name="description" content="本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。">
+<meta name="description" content="说到互联网的原理，我们可能有着一个感受：打开浏览器，输入网址，就能看到网页，而这个过程中我们不会考虑网络如何工作，浏览器如何工作。那么如果没有浏览器，我们能不能获取到网页的内容？本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。">
 <meta name="keywords" content="python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫介绍">
 <meta property="og:url" content="http://yoursite.com/爬虫介绍/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。">
+<meta property="og:description" content="说到互联网的原理，我们可能有着一个感受：打开浏览器，输入网址，就能看到网页，而这个过程中我们不会考虑网络如何工作，浏览器如何工作。那么如果没有浏览器，我们能不能获取到网页的内容？本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-20T12:31:42.361Z">
+<meta property="og:image" content="http://yoursite.com/爬虫介绍/gethtml.png">
+<meta property="og:image" content="http://yoursite.com/爬虫介绍/gethtml_web.png">
+<meta property="og:updated_time" content="2019-01-17T08:56:08.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫介绍">
-<meta name="twitter:description" content="本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。">
+<meta name="twitter:description" content="说到互联网的原理，我们可能有着一个感受：打开浏览器，输入网址，就能看到网页，而这个过程中我们不会考虑网络如何工作，浏览器如何工作。那么如果没有浏览器，我们能不能获取到网页的内容？本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。">
+<meta name="twitter:image" content="http://yoursite.com/爬虫介绍/gethtml.png">
 
 
 
@@ -363,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  66
+                  1.2k
                 </span>
               
 
@@ -379,7 +382,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -400,8 +403,24 @@
       
 
       
-        <p>本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。<br><a id="more"></a><br><strong>这里使用的是python3</strong></p>
-<h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><p>通过python请求页面，获取页面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import url open</span><br><span class="line">html=urlopen(<span class="string">"http://pythonscraping.com"</span>/pages/page1.html)</span><br><span class="line"><span class="built_in">print</span>(html.read())</span><br></pre></td></tr></table></figure></p>
+        <p>说到互联网的原理，我们可能有着一个感受：打开浏览器，输入网址，就能看到网页，而这个过程中我们不会考虑网络如何工作，浏览器如何工作。那么如果没有浏览器，我们能不能获取到网页的内容？本章将介绍如何不通过浏览器的帮助来获取、格式化、理解数据。<br><a id="more"></a></p>
+<p><strong>这里使用的是python3</strong></p>
+<h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><p>各个网页都存储在服务器上，客户端需要使用地址向指定的服务器获取指定的网页。这里的客户端通常是浏览器，但也可以是我们的原生代码，浏览器在数据交换的过程中用的也是代码，发送get请求，获得html网页，然后渲染出好看的界面。我们的python也可以作为代码请求网络服务器获取html网页代码，即使不显示成可视化界面，我们仍可以通过各种方式处理html中包含的各种数据。<br>首先，我们还是来看看如何请求浏览器获得html网页里的种种数据。<br>1、若没有urllib库，可以x先执行下面命令安装库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install urllib</span><br><span class="line"><span class="comment">#或者pip3 install urllib</span></span><br></pre></td></tr></table></figure></p>
+<p>2、通过python请求页面，获取页面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">html=urlopen(<span class="string">"http://pythonscraping.com/pages/page1.html"</span>)</span><br><span class="line"><span class="built_in">print</span>(html.read())</span><br></pre></td></tr></table></figure></p>
+<p>3、将该段代码保存为test.py,然后在终端运行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python test.py</span><br></pre></td></tr></table></figure></p>
+<p>运行结果如下图：<br><img src="/爬虫介绍/gethtml.png" width="800" height="800"><br>这里给各位提供一个方法，在浏览器界面上右键，选择“查看源代码”就可以看到当前网页的html源代码，你也可以根据自己获取到的代码进行一个比对。我们看看浏览器上的源代码如下图：<br><img src="/爬虫介绍/gethtml_web.png" width="800" height="800"><br>对比以上两个内容，可以发现实际上是一样的。到此为止，我们就用三行代码获取到了html网页。</p>
+<h2 id="更进一层的数据处理"><a href="#更进一层的数据处理" class="headerlink" title="更进一层的数据处理"></a>更进一层的数据处理</h2><p>假如说我希望获取到html网页中的标题。原始办法实际上就是处理字符串，截取head标签的内容。这样非常复杂。我们提出BeautifulSoup库，让他来方便快捷的定位处理数据。它就好比一个认识html网页的人，可以简单快捷的定位我们要的数据。<br>1、安装beautifulsoup4库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br><span class="line"><span class="comment">#或者pip3 install beautifulsoup4</span></span><br><span class="line"><span class="comment">#实际上大多数的python库都可以直接通过pip获取。</span></span><br></pre></td></tr></table></figure></p>
+<p>2、使用beautifulsoup4获取前面网页中的标题h1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html=urlopen(<span class="string">"http://pythonscraping.com/pages/page1.html"</span>)</span><br><span class="line">bsObj = BeautifulSoup(html.read()) <span class="comment">#用BeautifulSoup构造封装html的内容</span></span><br><span class="line"><span class="built_in">print</span>(bsObj.h1) <span class="comment">#获取h1标签内容</span></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">以下三种调用方式都可以产生同样的结果</span></span><br><span class="line"><span class="string">print(html.body.h1)</span></span><br><span class="line"><span class="string">print(body.h1)</span></span><br><span class="line"><span class="string">print(html.h1)</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br></pre></td></tr></table></figure></p>
+<p>构造完的bsObj就是一个有着结构化的对象。我们可以轻松获取其中任意节点的属性。<br>获取的结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;An Interesting Title&lt;/h1&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="更可靠的爬虫"><a href="#更可靠的爬虫" class="headerlink" title="更可靠的爬虫"></a>更可靠的爬虫</h2><p>网络数据往往不太友好，如果你要批量处理一些页面，但他们又会在运行中出现，比如这个网页有的标签那个网页没有，或者访问的网页404，服务器宕机等等。如果大量处理网页，实际上这些异常可能会在中间某个网页时出现，如果我们没有应对这样未知异常的处理办法，爬虫中途断了，会前功尽弃。所以我们在这里提出，要在一开始就估计可能出现的所有异常。<br>1、预估一下我们要面临的异常（基于本实验）：</p>
+<ul>
+<li>404、500等网页异常在urlopen都会抛出HTTPError</li>
+<li>链接打不开或者URL写错了，urlopen会返回一个None对象</li>
+<li>如果你希望调用的节点标签会返回None对象</li>
+<li>如果你再继续调用None对象的子标签就会发送AttributeError错误。<br>2、对于上述估计的4个异常，我们的代码如下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from urllib.error import HTTPError</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">def getTitle(url):</span><br><span class="line">    try:</span><br><span class="line">         html = urlopen(url)</span><br><span class="line">    except HTTPError as e:</span><br><span class="line">        <span class="built_in">return</span> None</span><br><span class="line">    try:</span><br><span class="line">        bsObj=BeautifulSoup(html.read())</span><br><span class="line">        title=bsObj.body.h1</span><br><span class="line">    except AttributeError as e:</span><br><span class="line">        <span class="built_in">return</span> None</span><br><span class="line">    <span class="built_in">return</span> title</span><br><span class="line"></span><br><span class="line">title=getTitle(<span class="string">"http://www.pythonscraping.com/pages/page1.html"</span>)</span><br><span class="line"><span class="keyword">if</span> title==None:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Title could not be found"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(title)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>本例中，我们创建了一个getTitle函数，在函数里面，我们先检查了HTTPError，然后检查我们是不是处理了空标签的子标签。所有的异常我们的处理方式都是返回None。便于我们在调用函数后进行情况的判断和处理。你可以更改以下访问地址，看看异常的处理结果。</p>
 
       
     </div>
@@ -478,8 +497,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/拉格朗日插值法/" rel="prev" title="拉格朗日插值法">
-                拉格朗日插值法 <i class="fa fa-chevron-right"></i>
+              <a href="/什么是数据挖掘/" rel="prev" title="什么是数据挖掘">
+                什么是数据挖掘 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -639,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络连接"><span class="nav-number">1.</span> <span class="nav-text">网络连接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络连接"><span class="nav-number">1.</span> <span class="nav-text">网络连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更进一层的数据处理"><span class="nav-number">2.</span> <span class="nav-text">更进一层的数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更可靠的爬虫"><span class="nav-number">3.</span> <span class="nav-text">更可靠的爬虫</span></a></li></ol></div>
             
 
           </div>
