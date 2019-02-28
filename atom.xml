@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-06T13:02:59.719Z</updated>
+  <updated>2019-02-28T07:51:54.399Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据标准化处理</title>
+    <link href="http://yoursite.com/%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E5%A4%84%E7%90%86/"/>
+    <id>http://yoursite.com/数据标准化处理/</id>
+    <published>2019-02-28T07:25:57.000Z</published>
+    <updated>2019-02-28T07:51:54.399Z</updated>
+    
+    <content type="html"><![CDATA[<p>本次学习我们主要是从数学角度简单介绍一下为什么要数据规范，如何数据规范。<br><a id="more"></a></p><h1 id="一、什么是数据规范化"><a href="#一、什么是数据规范化" class="headerlink" title="一、什么是数据规范化"></a>一、什么是数据规范化</h1><p>数据规范化（归一化）处理时数据挖掘的一项基础工作，不同评价指标往往具有不同的量纲，数值间的差别可能很大，不进行处理可能会影响到数据分析的结果。为了消除指标之间的量纲和取值范围差异的影响，需要进行标准化处理，将数据按照比例进行缩放，使之落入一个特定的区域，便于进行综合分析。如将工资收入属性值映射到[-1，1]或者[0,1]内。<br><strong>PS:数据规范化对于基于距离的挖掘算法尤为重要。</strong></p><h1 id="二、规范化的处理方法"><a href="#二、规范化的处理方法" class="headerlink" title="二、规范化的处理方法"></a>二、规范化的处理方法</h1><h2 id="1、最小-最大规范化——离差标准化"><a href="#1、最小-最大规范化——离差标准化" class="headerlink" title="1、最小-最大规范化——离差标准化"></a>1、最小-最大规范化——离差标准化</h2><p>离差标准化是对原始数据的线性变换，将数值映射到[0,1]之间。转换公式如下：<br>$$x^* = \frac{x-min}{max-min}$$<br>其中，$max$为样本数据的最大值，$min$为样本数据的最小值。$max-min$为极差。离差标准化保留了原来数据中存在的关系，是消除量纲和数据取值范围影响的最简单方法。这种处理方法的缺点是若数值集中且某个数值很大，规范化后各值会接近于0，并且将会相差不大。若将来遇到超过目前属性$[min,max]$取值范围的时候，会引起系统出错，需要重新确定$min$和$max$。</p><h2 id="2、零-均值规范化——标准差标准化"><a href="#2、零-均值规范化——标准差标准化" class="headerlink" title="2、零-均值规范化——标准差标准化"></a>2、零-均值规范化——标准差标准化</h2><p>标准差标准化经过处理的数据的均值为0，标准差为1。转化公式为：<br>$$x^* = \frac{x-\bar{x}}{\sigma}$$<br>其中$\bar{x}$为原始数据的均值，$\sigma$为原始数据的标准差，是当前用得最多的数据标准化方法。</p><h2 id="3、小数定标规范化"><a href="#3、小数定标规范化" class="headerlink" title="3、小数定标规范化"></a>3、小数定标规范化</h2><p>通过移动属性值的小数位数，讲属性值映射到[-1,1]之间，移动的小数位数取决于属性值绝对值的最大值。转化公式为：<br>$$x^* = \frac{x}{10^k}$$</p><h1 id="三、python实现三种规范化"><a href="#三、python实现三种规范化" class="headerlink" title="三、python实现三种规范化"></a>三、python实现三种规范化</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#数据规范化</span></span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">datafile=<span class="string">'../data/normalization_data.xls'</span> <span class="comment">#参数初始化</span></span><br><span class="line">data = pd.read_excel(datafile,header=None) <span class="comment">#读取数据</span></span><br><span class="line"></span><br><span class="line">(data - data.min())/(data.max()-data.min()) <span class="comment">#最小-最大规范化</span></span><br><span class="line">(data - data.mean())/data.std() <span class="comment">#零一均值规范化</span></span><br><span class="line">data/10**np.ceil(np.log10(data.abs().max())) <span class="comment">#小数定标规范化</span></span><br></pre></td></tr></table></figure><p>可以尝试以上代码，观察一下三种规范化处理完的数据有何不同。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本次学习我们主要是从数学角度简单介绍一下为什么要数据规范，如何数据规范。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础概念" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="数据处理" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>数据挖掘实战2-航空公司客户价值分析</title>
