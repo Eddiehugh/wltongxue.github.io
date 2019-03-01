@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-28T07:51:54.399Z</updated>
+  <updated>2019-03-01T04:01:13.193Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>K-Means聚类算法</title>
+    <link href="http://yoursite.com/K-Means%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/K-Means聚类算法/</id>
+    <published>2019-02-28T08:04:25.000Z</published>
+    <updated>2019-03-01T04:01:13.193Z</updated>
+    
+    <content type="html"><![CDATA[<p>本次学习我们将详细介绍什么是K-Means聚类算法，使用数学的方法进行描述和解释，并给出K-means算法过程。<br><a id="more"></a></p><h1 id="一、K-means算法简介"><a href="#一、K-means算法简介" class="headerlink" title="一、K-means算法简介"></a>一、K-means算法简介</h1><p>k-means算法是一种聚类算法，所谓聚类，即根据相似性原则，将具有较高相似度的数据对象划分至同一类簇，将具有较高相异度的数据对象划分至不同类簇。<strong>聚类与分类最大的区别在于，聚类过程为无监督过程，即待处理数据对象没有任何先验知识，而分类过程为有监督过程，即存在有先验知识的训练数据集。   </strong><br>k-means算法中的k代表类簇个数，means代表类簇内数据对象的均值（这种均值是一种对类簇中心的描述），因此，k-means算法又称为k-均值算法。k-means算法是一种基于划分的聚类算法，<strong>以距离作为数据对象间相似性度量的标准，即数据对象间的距离越小，则它们的相似性越高，则它们越有可能在同一个类簇。</strong>数据对象间距离的计算有很多种，k-means算法通常采用<em>欧氏距离</em>来计算数据对象间的距离。<br>接下来，我们通过k-means算法的三个核心过程来介绍：距离、迭代、终止条件</p><h2 id="1、k-means算法以距离作为数据对象间相似性度量的标准"><a href="#1、k-means算法以距离作为数据对象间相似性度量的标准" class="headerlink" title="1、k-means算法以距离作为数据对象间相似性度量的标准"></a>1、k-means算法以距离作为数据对象间相似性度量的标准</h2><p>距离有很多种，度量样本之间的相似性最常用的是欧几里得距离、曼哈顿距离和闵科夫斯基距离（ps:通常使用欧几里得距离）<br>– $x_{id}$就标识第$i$个数据的第$d$个属性值；<br>– 样本与簇之间的距离可以用样本到簇中心的距离$d(e_i,x)$表示；<br>– 簇与簇之间的距离可以用簇中心的距离$d(e_i,e_j)$表示。<br>假设数据中有$p$个属性，n个样本，则矩阵形式表示如下：<br>$$<br>\begin{bmatrix}<br>x_{11}&amp;\dots&amp;x_{1p} \\<br>\vdots&amp;\ddots&amp;\vdots\\<br>x_{n1}&amp;\dots&amp;x_{np}<br>\end{bmatrix}<br>$$<br>（1）欧几里得距离：<br>$$d(i,j) = \sqrt{(x_{i1}-x_{j1})^2+(x_{i1}-x_{j2})^2+\dots+(x_{ip}-x_{jp})^2}$$<br>（2）曼哈顿距离：<br>$$d(i,j) = |{x_{i1}-x_{j1}}|+|{x_{i2}-x_{j2}}|+\dots+|{x_{ip}-x_{jp}}|$$<br>（3）闵科夫斯基距离：<br>$$d(i,j) = \sqrt[q]{|{x_{i1}-x_{j1}}|^q+|{x_{i2}-x_{j2}}|^q+\dots+|{x_{ip}-x_{jp}}|^q}$$<br>$q$为正整数，$q=1$时即为曼哈顿距离；$q=2$时即为欧几里得距离。</p><h2 id="2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）"><a href="#2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）" class="headerlink" title="2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）"></a>2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）</h2><p>对应类簇中所有数据对象的均值，即为更新后该类簇的类簇中心。定义第$k$个类簇的类簇中心为$Center_k$，则类簇中心更新方式如下：<br>$$Center_k = \frac{1}{|C_k|}\sum_{x_i{\in}{C_k}}x_i$$<br>其中，$C_k$表示第k个类簇，$|C_k|$表示第k个类簇中数据对象的个数，<strong>这里的求和是指类簇k中所有元素在每列属性上的和</strong>，因此$Center_k$也是一个含有D个属性的向量，表示为<br>$$Center_k = (Center_{k,1},Center_{k,2},\dots,Center_{k,D})$$</p><h2 id="3、不断迭代更新类簇，那么终止条件是什么？"><a href="#3、不断迭代更新类簇，那么终止条件是什么？" class="headerlink" title="3、不断迭代更新类簇，那么终止条件是什么？"></a>3、不断迭代更新类簇，那么终止条件是什么？</h2><p>1、设定迭代次数T<br>2、采用误差平方和准则函数<br>$$J = \sum_{k=1}^K\sum_{x_i\in{C_k}}dist(x_i,Center_k)$$<br>$K$表示类簇个数。当两次迭代J的差值小于<strong>某一阈值</strong>时，即J&lt;δ时，则终止迭代 </p><h1 id="二、K-Means算法过程"><a href="#二、K-Means算法过程" class="headerlink" title="二、K-Means算法过程"></a>二、K-Means算法过程</h1><p>补充：<br>1、T为设定的最大迭代次数<br>2、迭代开始前，要初始化k个中心<br>3、更新类簇中心<br><img src="/K-Means聚类算法/k-means_process.png" width="800" height="800"></p><h1 id="三、k-means算法优缺点"><a href="#三、k-means算法优缺点" class="headerlink" title="三、k-means算法优缺点"></a>三、k-means算法优缺点</h1><ul><li>优点：<br>  算法简单易实现； </li><li>缺点：<br>  需要用户事先指定类簇个数K；<br>  聚类结果对初始类簇中心的选取较为敏感；<br>  容易陷入局部最优；<br>  只能发现球型类簇； </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本次学习我们将详细介绍什么是K-Means聚类算法，使用数学的方法进行描述和解释，并给出K-means算法过程。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习算法" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>数据标准化处理</title>
@@ -188,6 +212,30 @@
   </entry>
   
   <entry>
+    <title>什么是数据挖掘</title>
+    <link href="http://yoursite.com/%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    <id>http://yoursite.com/什么是数据挖掘/</id>
+    <published>2018-12-10T11:27:57.000Z</published>
+    <updated>2019-01-05T09:08:06.333Z</updated>
+    
+    <content type="html"><![CDATA[<p>整个系列实战源码下载地址：<a href="https://github.com/wltongxue/python-DataMining-Practice" target="_blank" rel="noopener">https://github.com/wltongxue/python-DataMining-Practice</a><br>本次学习我们将从4个方面进行深入介绍：<br><strong>1、数据挖掘的定义。</strong>（了解什么是数据挖掘？它是用来干什么的？）<br><strong>2、数据挖掘的过程。</strong>（明白数据挖掘要做什么事情？）<br><strong>3、挖掘建模中的算法和评价。</strong>（了解挖掘中最重要的建模部分都有哪些？）<br><strong>4、所使用的python库。</strong>（使用代码进行实现时我们要具备的环境？）<br><a id="more"></a></p><h1 id="一、什么是数据挖掘"><a href="#一、什么是数据挖掘" class="headerlink" title="一、什么是数据挖掘"></a>一、什么是数据挖掘</h1><p>1、数据挖掘一般是指从大量的数据中通过<strong>算法搜索</strong>隐藏于其中信息的过程。（这里如果不懂，可以先往下看，会举例说明）<br>2、基本任务包括<strong>利用分类与预测、聚类分析、关联规则、时序模式、偏差检测、智能推荐等方法</strong>，从数据中提取蕴含价值的信息。<br>3、根据<strong>问题决定属于哪一类任务</strong>，确定任务以后再决定使用什么算法建模<br><em>注：机器学习算法指的是分类与预测 和 聚类分析算法（每一次从数据集的学习都是不确定的，这样的算法叫做机器学习算法）</em></p><h1 id="二、数据挖掘的过程"><a href="#二、数据挖掘的过程" class="headerlink" title="二、数据挖掘的过程"></a>二、数据挖掘的过程</h1><p>&#160; &#160;数据挖掘的过程及描述：</p><style>table th:first-of-type {    width: 100px;}</style><table><thead><tr><th>过程</th><th>描述</th></tr></thead><tbody><tr><td>定义挖掘目标</td><td>要实现什么样的功能，找到什么样的信息</td></tr><tr><td>数据取样</td><td>需要哪些原始的数据</td></tr><tr><td>数据探索</td><td>对数据进行了解分析（直观或统计）、数据质量分析（脏数据等）、数据特征分析（分布等）</td></tr><tr><td>数据预处理</td><td>数据清洗、数据集成、数据变换、数据规约；降维、补缺等修剪来获得“好”数据</td></tr><tr><td>挖掘建模</td><td>首先判断属于哪类问题（分类、聚类等）；选用对应的算法和模型进行数据分析</td></tr><tr><td>模型评估</td><td>对所选用的模型进行评测；利用该类模型的评估指标（方差、ROC等）</td></tr></tbody></table><p><em>注：数据探索和数据预处理都是为了获取到好的数据训练而服务的<br>&#160; &#160;脏数据包括：缺失、异常、一致<br>&#160; &#160;特征分析：分布、对比、统计量、周期性、贡献度、相关性<br>&#160; &#160;统计数据清洗：缺失值、异常值处理<br>&#160; &#160;数据集成：实体识别、冗余属性识别<br>&#160; &#160;数据变换：简单函数变换、规范化、连续属性离散化、属性构造、小波变换<br>&#160; &#160;数据规约：属性规约、数值规约 </em></p><h1 id="三、挖掘建模中常用的算法和评价"><a href="#三、挖掘建模中常用的算法和评价" class="headerlink" title="三、挖掘建模中常用的算法和评价"></a>三、挖掘建模中常用的算法和评价</h1><p>&#160; &#160;机器学习算法指的是<strong>分类与预测和聚类分析算法（每一次从数据集的学习都是不确定的）</strong>，并且模型在不断学习提升（变化），所以机器学习获得的模型或者算法是需要评价，评价学习结果的好坏。</p><h3 id="1、分类与预测"><a href="#1、分类与预测" class="headerlink" title="1、分类与预测"></a>1、分类与预测</h3><h4 id="分类与预测常用算法"><a href="#分类与预测常用算法" class="headerlink" title="分类与预测常用算法"></a>分类与预测常用算法</h4><p>解决的问题：预测分类标号、预测某个值<br>1、回归分析：线性、非线性、Logistic、岭回归、主成分<br>2、决策树：ID3、C4.5、CART<br>3、人工神经网络：BP、LM、RBF、FNN、GMDH、ANFIS<br>4、贝叶斯网络<br>5、支持向量机（SVM）</p><h4 id="分类与预测算法评价指标"><a href="#分类与预测算法评价指标" class="headerlink" title="分类与预测算法评价指标"></a>分类与预测算法评价指标</h4><p>1、绝对误差与相对误差<br>2、平均绝对误差<br>3、均方误差<br>4、均方根误差<br>5、平均绝对百分误差<br>6、Kappa统计<br>7、识别准确度<br>8、识别精确率<br>9、反馈率<br>10、ROC曲线<br>11、混淆矩阵</p><h3 id="2、聚类分析"><a href="#2、聚类分析" class="headerlink" title="2、聚类分析"></a>2、聚类分析</h3><h4 id="聚类分析常用算法"><a href="#聚类分析常用算法" class="headerlink" title="聚类分析常用算法"></a>聚类分析常用算法</h4><p>解决的问题：非监督、无类标记、自行分类<br>1、K-means<br>2、K-中心点<br>3、系统聚类</p><h4 id="聚类分析算法评价"><a href="#聚类分析算法评价" class="headerlink" title="聚类分析算法评价"></a>聚类分析算法评价</h4><p>1、purity评价法<br>2、R1评价法<br>3、F值评价法</p><h3 id="3、关联规则"><a href="#3、关联规则" class="headerlink" title="3、关联规则"></a>3、关联规则</h3><h4 id="关联规则的常用算法"><a href="#关联规则的常用算法" class="headerlink" title="关联规则的常用算法"></a>关联规则的常用算法</h4><p>解决的问题：找出数据之间的关系<br>1、Apriori<br>2、FP-Tree<br>3、Eclat算法<br>4、灰色关联法</p><h3 id="4、时序模式"><a href="#4、时序模式" class="headerlink" title="4、时序模式"></a>4、时序模式</h3><h4 id="时序模式常用时序模型"><a href="#时序模式常用时序模型" class="headerlink" title="时序模式常用时序模型"></a>时序模式常用时序模型</h4><p>解决的问题：给定时间序列、预测未来值<br>1、平滑法、趋势拟合法、组合模型<br>2、AR模型、MA模型、ARMA模型、ARIMA模型<br>3、ARCH模型、GARCH模型</p><h3 id="5、离群点检测"><a href="#5、离群点检测" class="headerlink" title="5、离群点检测"></a>5、离群点检测</h3><h4 id="离群点检测方法"><a href="#离群点检测方法" class="headerlink" title="离群点检测方法"></a>离群点检测方法</h4><p>解决的问题：发现信息的噪声点<br>1、基于统计的<br>2、基于邻近度的<br>3、基于密度的<br>4、基于聚类的</p><h1 id="四、所使用的python库"><a href="#四、所使用的python库" class="headerlink" title="四、所使用的python库"></a>四、所使用的python库</h1><p>&#160; &#160;Python数据挖掘相关扩展库：</p><style>table th:first-of-type {    width: 100px;}</style><table><thead><tr><th>扩展库</th><th>描述</th></tr></thead><tbody><tr><td>Numpy</td><td>提供数组支持，以及相应的高效的处理函数</td></tr><tr><td>Scipy</td><td>提供矩阵支持，以及矩阵相关的数值计算模块</td></tr><tr><td>Matplotlib</td><td>强大的数据可视化工具、作图库</td></tr><tr><td>Pandas</td><td>强大、灵活的数据分析和探索工具</td></tr><tr><td>StatsModels</td><td>统计建模和计量经济学，包括描述统计、统计模型估计和推断</td></tr><tr><td>Scikit-Learn</td><td>支持回归、分析、聚类等的强大的机器学习库</td></tr><tr><td>Keras</td><td>深度学习库，用于建立神经网络以及深度学习模型</td></tr><tr><td>Genism</td><td>用来做文本主题模型的库，本文挖掘可能用到</td></tr></tbody></table><h1 id="五、实践展示"><a href="#五、实践展示" class="headerlink" title="五、实践展示"></a>五、实践展示</h1><ul><li><a href="https://wltongxue.github.io/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%AE%9E%E6%88%981-%E7%94%B5%E5%8A%9B%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB/" target="_blank" rel="noopener">电力窃漏电用户自动识别</a></li><li>航空公司客户价值分析</li><li>中医证型关联规则挖掘</li><li>基于水色图像的水质评价</li><li>家用电器用户行为分析与事件识别</li><li>应用系统负载分析与磁盘容量预测</li><li>电子商务网站用户行为分析及服务推荐</li><li>财政收入影响因素分析及预测模型</li><li>基于基站定位数据的商圈分析</li><li>电商产品评论数据情感分析</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整个系列实战源码下载地址：&lt;a href=&quot;https://github.com/wltongxue/python-DataMining-Practice&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/wltongxue/python-DataMining-Practice&lt;/a&gt;&lt;br&gt;本次学习我们将从4个方面进行深入介绍：&lt;br&gt;&lt;strong&gt;1、数据挖掘的定义。&lt;/strong&gt;（了解什么是数据挖掘？它是用来干什么的？）&lt;br&gt;&lt;strong&gt;2、数据挖掘的过程。&lt;/strong&gt;（明白数据挖掘要做什么事情？）&lt;br&gt;&lt;strong&gt;3、挖掘建模中的算法和评价。&lt;/strong&gt;（了解挖掘中最重要的建模部分都有哪些？）&lt;br&gt;&lt;strong&gt;4、所使用的python库。&lt;/strong&gt;（使用代码进行实现时我们要具备的环境？）&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据挖掘实战讲解系列" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%AE%9E%E6%88%98%E8%AE%B2%E8%A7%A3%E7%B3%BB%E5%88%97/"/>
+    
+    
+      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>拉格朗日插值法</title>
     <link href="http://yoursite.com/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95/"/>
     <id>http://yoursite.com/拉格朗日插值法/</id>
@@ -210,30 +258,6 @@
       <category term="数据处理" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
       <category term="插值" scheme="http://yoursite.com/tags/%E6%8F%92%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是数据挖掘</title>
-    <link href="http://yoursite.com/%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    <id>http://yoursite.com/什么是数据挖掘/</id>
-    <published>2018-12-10T11:27:57.000Z</published>
-    <updated>2019-01-05T09:08:06.333Z</updated>
-    
-    <content type="html"><![CDATA[<p>整个系列实战源码下载地址：<a href="https://github.com/wltongxue/python-DataMining-Practice" target="_blank" rel="noopener">https://github.com/wltongxue/python-DataMining-Practice</a><br>本次学习我们将从4个方面进行深入介绍：<br><strong>1、数据挖掘的定义。</strong>（了解什么是数据挖掘？它是用来干什么的？）<br><strong>2、数据挖掘的过程。</strong>（明白数据挖掘要做什么事情？）<br><strong>3、挖掘建模中的算法和评价。</strong>（了解挖掘中最重要的建模部分都有哪些？）<br><strong>4、所使用的python库。</strong>（使用代码进行实现时我们要具备的环境？）<br><a id="more"></a></p><h1 id="一、什么是数据挖掘"><a href="#一、什么是数据挖掘" class="headerlink" title="一、什么是数据挖掘"></a>一、什么是数据挖掘</h1><p>1、数据挖掘一般是指从大量的数据中通过<strong>算法搜索</strong>隐藏于其中信息的过程。（这里如果不懂，可以先往下看，会举例说明）<br>2、基本任务包括<strong>利用分类与预测、聚类分析、关联规则、时序模式、偏差检测、智能推荐等方法</strong>，从数据中提取蕴含价值的信息。<br>3、根据<strong>问题决定属于哪一类任务</strong>，确定任务以后再决定使用什么算法建模<br><em>注：机器学习算法指的是分类与预测 和 聚类分析算法（每一次从数据集的学习都是不确定的，这样的算法叫做机器学习算法）</em></p><h1 id="二、数据挖掘的过程"><a href="#二、数据挖掘的过程" class="headerlink" title="二、数据挖掘的过程"></a>二、数据挖掘的过程</h1><p>&#160; &#160;数据挖掘的过程及描述：</p><style>table th:first-of-type {    width: 100px;}</style><table><thead><tr><th>过程</th><th>描述</th></tr></thead><tbody><tr><td>定义挖掘目标</td><td>要实现什么样的功能，找到什么样的信息</td></tr><tr><td>数据取样</td><td>需要哪些原始的数据</td></tr><tr><td>数据探索</td><td>对数据进行了解分析（直观或统计）、数据质量分析（脏数据等）、数据特征分析（分布等）</td></tr><tr><td>数据预处理</td><td>数据清洗、数据集成、数据变换、数据规约；降维、补缺等修剪来获得“好”数据</td></tr><tr><td>挖掘建模</td><td>首先判断属于哪类问题（分类、聚类等）；选用对应的算法和模型进行数据分析</td></tr><tr><td>模型评估</td><td>对所选用的模型进行评测；利用该类模型的评估指标（方差、ROC等）</td></tr></tbody></table><p><em>注：数据探索和数据预处理都是为了获取到好的数据训练而服务的<br>&#160; &#160;脏数据包括：缺失、异常、一致<br>&#160; &#160;特征分析：分布、对比、统计量、周期性、贡献度、相关性<br>&#160; &#160;统计数据清洗：缺失值、异常值处理<br>&#160; &#160;数据集成：实体识别、冗余属性识别<br>&#160; &#160;数据变换：简单函数变换、规范化、连续属性离散化、属性构造、小波变换<br>&#160; &#160;数据规约：属性规约、数值规约 </em></p><h1 id="三、挖掘建模中常用的算法和评价"><a href="#三、挖掘建模中常用的算法和评价" class="headerlink" title="三、挖掘建模中常用的算法和评价"></a>三、挖掘建模中常用的算法和评价</h1><p>&#160; &#160;机器学习算法指的是<strong>分类与预测和聚类分析算法（每一次从数据集的学习都是不确定的）</strong>，并且模型在不断学习提升（变化），所以机器学习获得的模型或者算法是需要评价，评价学习结果的好坏。</p><h3 id="1、分类与预测"><a href="#1、分类与预测" class="headerlink" title="1、分类与预测"></a>1、分类与预测</h3><h4 id="分类与预测常用算法"><a href="#分类与预测常用算法" class="headerlink" title="分类与预测常用算法"></a>分类与预测常用算法</h4><p>解决的问题：预测分类标号、预测某个值<br>1、回归分析：线性、非线性、Logistic、岭回归、主成分<br>2、决策树：ID3、C4.5、CART<br>3、人工神经网络：BP、LM、RBF、FNN、GMDH、ANFIS<br>4、贝叶斯网络<br>5、支持向量机（SVM）</p><h4 id="分类与预测算法评价指标"><a href="#分类与预测算法评价指标" class="headerlink" title="分类与预测算法评价指标"></a>分类与预测算法评价指标</h4><p>1、绝对误差与相对误差<br>2、平均绝对误差<br>3、均方误差<br>4、均方根误差<br>5、平均绝对百分误差<br>6、Kappa统计<br>7、识别准确度<br>8、识别精确率<br>9、反馈率<br>10、ROC曲线<br>11、混淆矩阵</p><h3 id="2、聚类分析"><a href="#2、聚类分析" class="headerlink" title="2、聚类分析"></a>2、聚类分析</h3><h4 id="聚类分析常用算法"><a href="#聚类分析常用算法" class="headerlink" title="聚类分析常用算法"></a>聚类分析常用算法</h4><p>解决的问题：非监督、无类标记、自行分类<br>1、K-means<br>2、K-中心点<br>3、系统聚类</p><h4 id="聚类分析算法评价"><a href="#聚类分析算法评价" class="headerlink" title="聚类分析算法评价"></a>聚类分析算法评价</h4><p>1、purity评价法<br>2、R1评价法<br>3、F值评价法</p><h3 id="3、关联规则"><a href="#3、关联规则" class="headerlink" title="3、关联规则"></a>3、关联规则</h3><h4 id="关联规则的常用算法"><a href="#关联规则的常用算法" class="headerlink" title="关联规则的常用算法"></a>关联规则的常用算法</h4><p>解决的问题：找出数据之间的关系<br>1、Apriori<br>2、FP-Tree<br>3、Eclat算法<br>4、灰色关联法</p><h3 id="4、时序模式"><a href="#4、时序模式" class="headerlink" title="4、时序模式"></a>4、时序模式</h3><h4 id="时序模式常用时序模型"><a href="#时序模式常用时序模型" class="headerlink" title="时序模式常用时序模型"></a>时序模式常用时序模型</h4><p>解决的问题：给定时间序列、预测未来值<br>1、平滑法、趋势拟合法、组合模型<br>2、AR模型、MA模型、ARMA模型、ARIMA模型<br>3、ARCH模型、GARCH模型</p><h3 id="5、离群点检测"><a href="#5、离群点检测" class="headerlink" title="5、离群点检测"></a>5、离群点检测</h3><h4 id="离群点检测方法"><a href="#离群点检测方法" class="headerlink" title="离群点检测方法"></a>离群点检测方法</h4><p>解决的问题：发现信息的噪声点<br>1、基于统计的<br>2、基于邻近度的<br>3、基于密度的<br>4、基于聚类的</p><h1 id="四、所使用的python库"><a href="#四、所使用的python库" class="headerlink" title="四、所使用的python库"></a>四、所使用的python库</h1><p>&#160; &#160;Python数据挖掘相关扩展库：</p><style>table th:first-of-type {    width: 100px;}</style><table><thead><tr><th>扩展库</th><th>描述</th></tr></thead><tbody><tr><td>Numpy</td><td>提供数组支持，以及相应的高效的处理函数</td></tr><tr><td>Scipy</td><td>提供矩阵支持，以及矩阵相关的数值计算模块</td></tr><tr><td>Matplotlib</td><td>强大的数据可视化工具、作图库</td></tr><tr><td>Pandas</td><td>强大、灵活的数据分析和探索工具</td></tr><tr><td>StatsModels</td><td>统计建模和计量经济学，包括描述统计、统计模型估计和推断</td></tr><tr><td>Scikit-Learn</td><td>支持回归、分析、聚类等的强大的机器学习库</td></tr><tr><td>Keras</td><td>深度学习库，用于建立神经网络以及深度学习模型</td></tr><tr><td>Genism</td><td>用来做文本主题模型的库，本文挖掘可能用到</td></tr></tbody></table><h1 id="五、实践展示"><a href="#五、实践展示" class="headerlink" title="五、实践展示"></a>五、实践展示</h1><ul><li><a href="https://wltongxue.github.io/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%AE%9E%E6%88%981-%E7%94%B5%E5%8A%9B%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB/" target="_blank" rel="noopener">电力窃漏电用户自动识别</a></li><li>航空公司客户价值分析</li><li>中医证型关联规则挖掘</li><li>基于水色图像的水质评价</li><li>家用电器用户行为分析与事件识别</li><li>应用系统负载分析与磁盘容量预测</li><li>电子商务网站用户行为分析及服务推荐</li><li>财政收入影响因素分析及预测模型</li><li>基于基站定位数据的商圈分析</li><li>电商产品评论数据情感分析</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;整个系列实战源码下载地址：&lt;a href=&quot;https://github.com/wltongxue/python-DataMining-Practice&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/wltongxue/python-DataMining-Practice&lt;/a&gt;&lt;br&gt;本次学习我们将从4个方面进行深入介绍：&lt;br&gt;&lt;strong&gt;1、数据挖掘的定义。&lt;/strong&gt;（了解什么是数据挖掘？它是用来干什么的？）&lt;br&gt;&lt;strong&gt;2、数据挖掘的过程。&lt;/strong&gt;（明白数据挖掘要做什么事情？）&lt;br&gt;&lt;strong&gt;3、挖掘建模中的算法和评价。&lt;/strong&gt;（了解挖掘中最重要的建模部分都有哪些？）&lt;br&gt;&lt;strong&gt;4、所使用的python库。&lt;/strong&gt;（使用代码进行实现时我们要具备的环境？）&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据挖掘实战讲解系列" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%AE%9E%E6%88%98%E8%AE%B2%E8%A7%A3%E7%B3%BB%E5%88%97/"/>
-    
-    
-      <category term="数据挖掘" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   

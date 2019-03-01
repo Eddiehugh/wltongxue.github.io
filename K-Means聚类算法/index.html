@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="数据挖掘,机器学习,神经网络,">
+  <meta name="keywords" content="数据挖掘,机器学习,">
 
 
 
@@ -85,27 +85,20 @@
 
 
 
-<meta name="description" content="本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。">
-<meta name="keywords" content="数据挖掘,机器学习,神经网络">
+<meta name="description" content="本次学习我们将详细介绍什么是K-Means聚类算法，使用数学的方法进行描述和解释，并给出K-means算法过程。">
+<meta name="keywords" content="数据挖掘,机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LM_BP神经网络算法详解">
-<meta property="og:url" content="http://yoursite.com/LM-BP/index.html">
+<meta property="og:title" content="K-Means聚类算法">
+<meta property="og:url" content="http://yoursite.com/K-Means聚类算法/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。">
+<meta property="og:description" content="本次学习我们将详细介绍什么是K-Means聚类算法，使用数学的方法进行描述和解释，并给出K-means算法过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/LM-BP/single_neutral.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/activation_func.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/three_bp.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/bp_process.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/lm1.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/lm2.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/lm3.png">
-<meta property="og:image" content="http://yoursite.com/LM-BP/lm_process.png">
-<meta property="og:updated_time" content="2019-01-03T12:25:35.985Z">
+<meta property="og:image" content="http://yoursite.com/K-Means聚类算法/k-means_process.png">
+<meta property="og:updated_time" content="2019-03-01T04:01:13.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LM_BP神经网络算法详解">
-<meta name="twitter:description" content="本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。">
-<meta name="twitter:image" content="http://yoursite.com/LM-BP/single_neutral.png">
+<meta name="twitter:title" content="K-Means聚类算法">
+<meta name="twitter:description" content="本次学习我们将详细介绍什么是K-Means聚类算法，使用数学的方法进行描述和解释，并给出K-means算法过程。">
+<meta name="twitter:image" content="http://yoursite.com/K-Means聚类算法/k-means_process.png">
 
 
 
@@ -135,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/LM-BP/">
+  <link rel="canonical" href="http://yoursite.com/K-Means聚类算法/">
 
 
 
 
 
-  <title>LM_BP神经网络算法详解 | wltongxue</title>
+  <title>K-Means聚类算法 | wltongxue</title>
   
 
 
@@ -278,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/LM-BP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/K-Means聚类算法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wltongxue">
@@ -295,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LM_BP神经网络算法详解</h1>
+          <h1 class="post-title" itemprop="name headline">K-Means聚类算法</h1>
         
 
         <div class="post-meta">
@@ -307,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T19:37:33+08:00">
-                2019-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T16:04:25+08:00">
+                2019-02-28
               </time>
             
 
@@ -347,7 +340,7 @@
 
           
           
-             <span id="/LM-BP/" class="leancloud_visitors" data-flag-title="LM_BP神经网络算法详解">
+             <span id="/K-Means聚类算法/" class="leancloud_visitors" data-flag-title="K-Means聚类算法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -372,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  582
+                  1k
                 </span>
               
 
@@ -388,7 +381,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -409,11 +402,16 @@
       
 
       
-        <p>本次学习我们将介绍BP前向神经网络算法以及从BP延申的LM神经网络算法。了解神经网络算法的概念，算法原理。<br><a id="more"></a></p>
-<h1 id="一、BP神经网络算法"><a href="#一、BP神经网络算法" class="headerlink" title="一、BP神经网络算法"></a>一、BP神经网络算法</h1><h2 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h2><p>神经网络算法实际上是一种叠加的算法，对于每一个神经元来说，对输入信号$X=[x_1,x_2,…,x_m]^T$的输出$y$为$Y=f(u+b)$，其中$u=\sum_{i=1}^m{w_ix_i}$，如图所示：<br><img src="/LM-BP/single_neutral.png" width="350" height="350"><br>这里说到激活函数，我们可以看看激活函数的种类：<br><img src="/LM-BP/activation_func.png" width="800" height="800"><br>信号每经过一个神经元就会进行模型的运算，再将结果输出给下一个神经元，一层接一层就构成了神经网络，这里展示一个三层BP的神经网络结构。<br>我们可以举个例子，比如你是否喜欢喝酒是$x_1$，你是否喜欢蹦迪是$x_2$，你是否喜欢睡觉是$x_3$，输入之后在第二层每个神经元就结合这三个元素计算了起来，最后会输出$y$代表你会不会喜欢去夜店，如果我们有一万个不同的人回答这个问题，用8000个人的回答训练这个模型，最后模型会判断剩下2000人到底会不会喜欢去夜店。当然这是一种输出，神经元也可以有多种输出。<br><strong>注意，信号是正向传播的，但误差逆向传播，因为在神经元的训练过程中，每一个神经元学习的时候会根据误差调整自己以及之前的模型参数</strong><br><img src="/LM-BP/three_bp.png" width="350" height="350"></p>
-<h2 id="2、算法过程"><a href="#2、算法过程" class="headerlink" title="2、算法过程"></a>2、算法过程</h2><p>这个算法图清晰的说明了信号正向传播训练，误差逆向修正权值。这里的学习率，误差越小，学习率也会下降，误差越大，学习率也会增大，这样是为了更快的逼近好的权值。<br><img src="/LM-BP/bp_process.png" width="800" height="800"><br>综上可以看出，基于梯度下降算法（初始阶段优化）和牛顿法（收敛快）结合的多层前馈网络，特点：迭代次数少，收敛速度快，精度高<br>LM对初值（权值、阈值）较为依赖，是BP算法的改进版，接下来我们看看LM算法改进在了哪里</p>
-<h1 id="二、LM神经网络算法"><a href="#二、LM神经网络算法" class="headerlink" title="二、LM神经网络算法"></a>二、LM神经网络算法</h1><h2 id="1、改进之处"><a href="#1、改进之处" class="headerlink" title="1、改进之处"></a>1、改进之处</h2><p><img src="/LM-BP/lm1.png" width="800" height="800"><br><img src="/LM-BP/lm2.png" width="800" height="800"><br><img src="/LM-BP/lm3.png" width="800" height="800"></p>
-<h2 id="2、算法过程-1"><a href="#2、算法过程-1" class="headerlink" title="2、算法过程"></a>2、算法过程</h2><p><img src="/LM-BP/lm_process.png" width="800" height="800"></p>
+        <p>本次学习我们将详细介绍什么是K-Means聚类算法，使用数学的方法进行描述和解释，并给出K-means算法过程。<br><a id="more"></a></p>
+<h1 id="一、K-means算法简介"><a href="#一、K-means算法简介" class="headerlink" title="一、K-means算法简介"></a>一、K-means算法简介</h1><p>k-means算法是一种聚类算法，所谓聚类，即根据相似性原则，将具有较高相似度的数据对象划分至同一类簇，将具有较高相异度的数据对象划分至不同类簇。<strong>聚类与分类最大的区别在于，聚类过程为无监督过程，即待处理数据对象没有任何先验知识，而分类过程为有监督过程，即存在有先验知识的训练数据集。   </strong><br>k-means算法中的k代表类簇个数，means代表类簇内数据对象的均值（这种均值是一种对类簇中心的描述），因此，k-means算法又称为k-均值算法。k-means算法是一种基于划分的聚类算法，<strong>以距离作为数据对象间相似性度量的标准，即数据对象间的距离越小，则它们的相似性越高，则它们越有可能在同一个类簇。</strong>数据对象间距离的计算有很多种，k-means算法通常采用<em>欧氏距离</em>来计算数据对象间的距离。<br>接下来，我们通过k-means算法的三个核心过程来介绍：距离、迭代、终止条件</p>
+<h2 id="1、k-means算法以距离作为数据对象间相似性度量的标准"><a href="#1、k-means算法以距离作为数据对象间相似性度量的标准" class="headerlink" title="1、k-means算法以距离作为数据对象间相似性度量的标准"></a>1、k-means算法以距离作为数据对象间相似性度量的标准</h2><p>距离有很多种，度量样本之间的相似性最常用的是欧几里得距离、曼哈顿距离和闵科夫斯基距离（ps:通常使用欧几里得距离）<br>– $x_{id}$就标识第$i$个数据的第$d$个属性值；<br>– 样本与簇之间的距离可以用样本到簇中心的距离$d(e_i,x)$表示；<br>– 簇与簇之间的距离可以用簇中心的距离$d(e_i,e_j)$表示。<br>假设数据中有$p$个属性，n个样本，则矩阵形式表示如下：<br>$$<br>\begin{bmatrix}<br>x_{11}&amp;\dots&amp;x_{1p} \\<br>\vdots&amp;\ddots&amp;\vdots\\<br>x_{n1}&amp;\dots&amp;x_{np}<br>\end{bmatrix}<br>$$<br>（1）欧几里得距离：<br>$$d(i,j) = \sqrt{(x_{i1}-x_{j1})^2+(x_{i1}-x_{j2})^2+\dots+(x_{ip}-x_{jp})^2}$$<br>（2）曼哈顿距离：<br>$$d(i,j) = |{x_{i1}-x_{j1}}|+|{x_{i2}-x_{j2}}|+\dots+|{x_{ip}-x_{jp}}|$$<br>（3）闵科夫斯基距离：<br>$$d(i,j) = \sqrt[q]{|{x_{i1}-x_{j1}}|^q+|{x_{i2}-x_{j2}}|^q+\dots+|{x_{ip}-x_{jp}}|^q}$$<br>$q$为正整数，$q=1$时即为曼哈顿距离；$q=2$时即为欧几里得距离。</p>
+<h2 id="2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）"><a href="#2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）" class="headerlink" title="2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）"></a>2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）</h2><p>对应类簇中所有数据对象的均值，即为更新后该类簇的类簇中心。定义第$k$个类簇的类簇中心为$Center_k$，则类簇中心更新方式如下：<br>$$Center_k = \frac{1}{|C_k|}\sum_{x_i{\in}{C_k}}x_i$$<br>其中，$C_k$表示第k个类簇，$|C_k|$表示第k个类簇中数据对象的个数，<strong>这里的求和是指类簇k中所有元素在每列属性上的和</strong>，因此$Center_k$也是一个含有D个属性的向量，表示为<br>$$Center_k = (Center_{k,1},Center_{k,2},\dots,Center_{k,D})$$</p>
+<h2 id="3、不断迭代更新类簇，那么终止条件是什么？"><a href="#3、不断迭代更新类簇，那么终止条件是什么？" class="headerlink" title="3、不断迭代更新类簇，那么终止条件是什么？"></a>3、不断迭代更新类簇，那么终止条件是什么？</h2><p>1、设定迭代次数T<br>2、采用误差平方和准则函数<br>$$J = \sum_{k=1}^K\sum_{x_i\in{C_k}}dist(x_i,Center_k)$$<br>$K$表示类簇个数。当两次迭代J的差值小于<strong>某一阈值</strong>时，即J&lt;δ时，则终止迭代 </p>
+<h1 id="二、K-Means算法过程"><a href="#二、K-Means算法过程" class="headerlink" title="二、K-Means算法过程"></a>二、K-Means算法过程</h1><p>补充：<br>1、T为设定的最大迭代次数<br>2、迭代开始前，要初始化k个中心<br>3、更新类簇中心<br><img src="/K-Means聚类算法/k-means_process.png" width="800" height="800"></p>
+<h1 id="三、k-means算法优缺点"><a href="#三、k-means算法优缺点" class="headerlink" title="三、k-means算法优缺点"></a>三、k-means算法优缺点</h1><ul>
+<li>优点：<br>  算法简单易实现； </li>
+<li>缺点：<br>  需要用户事先指定类簇个数K；<br>  聚类结果对初始类簇中心的选取较为敏感；<br>  容易陷入局部最优；<br>  只能发现球型类簇； </li>
+</ul>
 
       
     </div>
@@ -469,8 +467,6 @@
           
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/神经网络/" rel="tag"># 神经网络</a>
-          
         </div>
       
 
@@ -482,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/CART/" rel="next" title="ID3、CART算法">
-                <i class="fa fa-chevron-left"></i> ID3、CART算法
+              <a href="/数据标准化处理/" rel="next" title="数据标准化处理">
+                <i class="fa fa-chevron-left"></i> 数据标准化处理
               </a>
             
           </div>
@@ -491,10 +487,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/ROC/" rel="prev" title="ROC曲线">
-                ROC曲线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、BP神经网络算法"><span class="nav-number">1.</span> <span class="nav-text">一、BP神经网络算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、概念"><span class="nav-number">1.1.</span> <span class="nav-text">1、概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、算法过程"><span class="nav-number">1.2.</span> <span class="nav-text">2、算法过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、LM神经网络算法"><span class="nav-number">2.</span> <span class="nav-text">二、LM神经网络算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、改进之处"><span class="nav-number">2.1.</span> <span class="nav-text">1、改进之处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、算法过程-1"><span class="nav-number">2.2.</span> <span class="nav-text">2、算法过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、K-means算法简介"><span class="nav-number">1.</span> <span class="nav-text">一、K-means算法简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、k-means算法以距离作为数据对象间相似性度量的标准"><span class="nav-number">1.1.</span> <span class="nav-text">1、k-means算法以距离作为数据对象间相似性度量的标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）"><span class="nav-number">1.2.</span> <span class="nav-text">2、k-means算法聚类过程中，每次迭代，对应的类簇中心需要重新计算（更新）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、不断迭代更新类簇，那么终止条件是什么？"><span class="nav-number">1.3.</span> <span class="nav-text">3、不断迭代更新类簇，那么终止条件是什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、K-Means算法过程"><span class="nav-number">2.</span> <span class="nav-text">二、K-Means算法过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、k-means算法优缺点"><span class="nav-number">3.</span> <span class="nav-text">三、k-means算法优缺点</span></a></li></ol></div>
             
 
           </div>
