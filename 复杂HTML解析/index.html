@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="数据挖掘,数据处理,">
+  <meta name="keywords" content="python,爬虫,BeautifulSoup,">
 
 
 
@@ -85,18 +85,25 @@
 
 
 
-<meta name="description" content="本次学习我们主要是从数学角度简单介绍一下为什么要数据规范，如何数据规范。">
-<meta name="keywords" content="数据挖掘,数据处理">
+<meta name="description" content="上节学会了如何通过代码获取网页并通过BeautifulSoup进行简单的解析，这一节，我们将进一步学习BeautifulSoup对HTML更多的解析方法，通过查找标签的方法，标签组的使用，以及标签解析树的导航来定位我们想要的数据。">
+<meta name="keywords" content="python,爬虫,BeautifulSoup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据标准化处理">
-<meta property="og:url" content="http://yoursite.com/数据标准化处理/index.html">
+<meta property="og:title" content="&lt;二&gt;复杂HTML解析">
+<meta property="og:url" content="http://yoursite.com/复杂HTML解析/index.html">
 <meta property="og:site_name" content="wltongxue">
-<meta property="og:description" content="本次学习我们主要是从数学角度简单介绍一下为什么要数据规范，如何数据规范。">
+<meta property="og:description" content="上节学会了如何通过代码获取网页并通过BeautifulSoup进行简单的解析，这一节，我们将进一步学习BeautifulSoup对HTML更多的解析方法，通过查找标签的方法，标签组的使用，以及标签解析树的导航来定位我们想要的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T07:51:54.399Z">
+<meta property="og:image" content="http://yoursite.com/复杂HTML解析/name_with_tag.png">
+<meta property="og:image" content="http://yoursite.com/复杂HTML解析/name_without_tag.png">
+<meta property="og:image" content="http://yoursite.com/复杂HTML解析/children_tags.png">
+<meta property="og:image" content="http://yoursite.com/复杂HTML解析/descendants_tags.png">
+<meta property="og:image" content="http://yoursite.com/复杂HTML解析/regular_expression_rules.png">
+<meta property="og:image" content="http://yoursite.com/复杂HTML解析/regular_expression_characters.png">
+<meta property="og:updated_time" content="2019-03-05T04:09:33.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据标准化处理">
-<meta name="twitter:description" content="本次学习我们主要是从数学角度简单介绍一下为什么要数据规范，如何数据规范。">
+<meta name="twitter:title" content="&lt;二&gt;复杂HTML解析">
+<meta name="twitter:description" content="上节学会了如何通过代码获取网页并通过BeautifulSoup进行简单的解析，这一节，我们将进一步学习BeautifulSoup对HTML更多的解析方法，通过查找标签的方法，标签组的使用，以及标签解析树的导航来定位我们想要的数据。">
+<meta name="twitter:image" content="http://yoursite.com/复杂HTML解析/name_with_tag.png">
 
 
 
@@ -126,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/数据标准化处理/">
+  <link rel="canonical" href="http://yoursite.com/复杂HTML解析/">
 
 
 
 
 
-  <title>数据标准化处理 | wltongxue</title>
+  <title><二>复杂HTML解析 | wltongxue</二></title>
   
 
 
@@ -269,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/数据标准化处理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/复杂HTML解析/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wltongxue">
@@ -286,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据标准化处理</h1>
+          <h1 class="post-title" itemprop="name headline"><二>复杂HTML解析</二></h1>
         
 
         <div class="post-meta">
@@ -298,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T15:25:57+08:00">
-                2019-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-02T19:38:24+08:00">
+                2019-03-02
               </time>
             
 
@@ -321,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础概念/" itemprop="url" rel="index">
-                    <span itemprop="name">基础概念</span>
+                  <a href="/categories/数据采集/" itemprop="url" rel="index">
+                    <span itemprop="name">数据采集</span>
                   </a>
                 </span>
 
@@ -338,7 +345,7 @@
 
           
           
-             <span id="/数据标准化处理/" class="leancloud_visitors" data-flag-title="数据标准化处理">
+             <span id="/复杂HTML解析/" class="leancloud_visitors" data-flag-title="<二>复杂HTML解析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  663
+                  1.5k
                 </span>
               
 
@@ -379,7 +386,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  6
                 </span>
               
             </div>
@@ -400,13 +407,27 @@
       
 
       
-        <p>本次学习我们主要是从数学角度简单介绍一下为什么要数据规范，如何数据规范。<br><a id="more"></a></p>
-<h1 id="一、什么是数据规范化"><a href="#一、什么是数据规范化" class="headerlink" title="一、什么是数据规范化"></a>一、什么是数据规范化</h1><p>数据规范化（归一化）处理时数据挖掘的一项基础工作，不同评价指标往往具有不同的量纲，数值间的差别可能很大，不进行处理可能会影响到数据分析的结果。为了消除指标之间的量纲和取值范围差异的影响，需要进行标准化处理，将数据按照比例进行缩放，使之落入一个特定的区域，便于进行综合分析。如将工资收入属性值映射到[-1，1]或者[0,1]内。<br><strong>PS:数据规范化对于基于距离的挖掘算法尤为重要。</strong></p>
-<h1 id="二、规范化的处理方法"><a href="#二、规范化的处理方法" class="headerlink" title="二、规范化的处理方法"></a>二、规范化的处理方法</h1><h2 id="1、最小-最大规范化——离差标准化"><a href="#1、最小-最大规范化——离差标准化" class="headerlink" title="1、最小-最大规范化——离差标准化"></a>1、最小-最大规范化——离差标准化</h2><p>离差标准化是对原始数据的线性变换，将数值映射到[0,1]之间。转换公式如下：<br>$$x^* = \frac{x-min}{max-min}$$<br>其中，$max$为样本数据的最大值，$min$为样本数据的最小值。$max-min$为极差。离差标准化保留了原来数据中存在的关系，是消除量纲和数据取值范围影响的最简单方法。这种处理方法的缺点是若数值集中且某个数值很大，规范化后各值会接近于0，并且将会相差不大。若将来遇到超过目前属性$[min,max]$取值范围的时候，会引起系统出错，需要重新确定$min$和$max$。</p>
-<h2 id="2、零-均值规范化——标准差标准化"><a href="#2、零-均值规范化——标准差标准化" class="headerlink" title="2、零-均值规范化——标准差标准化"></a>2、零-均值规范化——标准差标准化</h2><p>标准差标准化经过处理的数据的均值为0，标准差为1。转化公式为：<br>$$x^* = \frac{x-\bar{x}}{\sigma}$$<br>其中$\bar{x}$为原始数据的均值，$\sigma$为原始数据的标准差，是当前用得最多的数据标准化方法。</p>
-<h2 id="3、小数定标规范化"><a href="#3、小数定标规范化" class="headerlink" title="3、小数定标规范化"></a>3、小数定标规范化</h2><p>通过移动属性值的小数位数，讲属性值映射到[-1,1]之间，移动的小数位数取决于属性值绝对值的最大值。转化公式为：<br>$$x^* = \frac{x}{10^k}$$</p>
-<h1 id="三、python实现三种规范化"><a href="#三、python实现三种规范化" class="headerlink" title="三、python实现三种规范化"></a>三、python实现三种规范化</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#数据规范化</span></span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">datafile=<span class="string">'../data/normalization_data.xls'</span> <span class="comment">#参数初始化</span></span><br><span class="line">data = pd.read_excel(datafile,header=None) <span class="comment">#读取数据</span></span><br><span class="line"></span><br><span class="line">(data - data.min())/(data.max()-data.min()) <span class="comment">#最小-最大规范化</span></span><br><span class="line">(data - data.mean())/data.std() <span class="comment">#零一均值规范化</span></span><br><span class="line">data/10**np.ceil(np.log10(data.abs().max())) <span class="comment">#小数定标规范化</span></span><br></pre></td></tr></table></figure>
-<p>可以尝试以上代码，观察一下三种规范化处理完的数据有何不同。</p>
+        <p>上节学会了如何通过代码获取网页并通过BeautifulSoup进行简单的解析，这一节，我们将进一步学习BeautifulSoup对HTML更多的解析方法，通过查找标签的方法，标签组的使用，以及标签解析树的导航来定位我们想要的数据。<br><a id="more"></a></p>
+<h1 id="BeautifulSoup的find-和findAll"><a href="#BeautifulSoup的find-和findAll" class="headerlink" title="BeautifulSoup的find()和findAll()"></a>BeautifulSoup的find()和findAll()</h1><h2 id="1、函数介绍"><a href="#1、函数介绍" class="headerlink" title="1、函数介绍"></a>1、函数介绍</h2><p>借助这两个函数，你可以通过<strong>不同的标签、不同的属性轻松的过滤HTML页面，查找你心仪的它或他们（标签组或单个标签）</strong>。我们先看看这两个函数的定义：<br>findAll(tag,attributes,recursive,text,limit,keywords)<br>find(tag,attributes,recursive,text,keywords)</p>
+<ul>
+<li>在绝大多数的情况下，我们只需要用tag和attributes两个函数。<br>– tag:你可以传一个标签或多个标签名称列表去做标签参数。<br>例如： findAll({“h1”,”h2”,”h3”,”h4”,”h6”}) 返回HTMl文档中所有标题标签的列表。<br>– attributes：是一个python字典封装一个标签的若干属性和对应的若干属性值。<br>例如： findAll(“span”,{“class”:{“green”,”red”}}) 返回HTML文档中span标签下class值是红色和绿色两种颜色的值</li>
+<li>recursive是一个布尔变量。如果为True，则查找tag参数的所有子标签，以及子标签的子标签；如果为False，就只查找文档的一级标签，默认为True。</li>
+<li>text是用标签的文本内容去匹配，而不是用标签的属性。<br>例如：findAll(text=”the prince”) 返回包含了“the prince”这个字符串的内容</li>
+<li>limit：是一个数字，如果你只获取结果中的<strong>前x个项</strong>。实际上，find就等价于findAll的limit等于1的情形。</li>
+<li>keyword：让你选择那些，具有指定属性及其指定值的标签<br>例如：findAll(id=’text’) 返回具有id这个属性，并且属性值为’text’的标签。<br>ps：findAll(id=’text’)等价于<strong>findAll(“”,{“id”:”text”})</strong>,实际我们更推荐第二种用法。</li>
+</ul>
+<h2 id="2、举例说明"><a href="#2、举例说明" class="headerlink" title="2、举例说明"></a>2、举例说明</h2><p>我们举例一个网页<a href="http://www.pythonscraping.com/pages/warandpeace.html" target="_blank" rel="noopener">http://www.pythonscraping.com/pages/warandpeace.html</a> （任何时候，请在写代码前去查看你爬取页面的源码！！）。<br>这个页面小说任务对话内容都是红色，人物名称是绿色的。我们想要获取到这个网页中所有的人名。代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(<span class="string">"http://www.pythonscraping.com/pages/warandpeace.html"</span>)</span><br><span class="line">bsObj = BeautifulSoup(html)</span><br><span class="line"></span><br><span class="line">nameList = bsObj.findAll(<span class="string">"span"</span>, &#123;<span class="string">"class"</span>:<span class="string">"green"</span>&#125;) <span class="comment">#获取span标签下所有绿色的内容</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> nameList:</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure></p>
+<p>此时输出结果如下图：<br><img src="/复杂HTML解析/name_with_tag.png" width="300" height="300"><br>可以看出这个列表的输出还彪悍了标签，那么如果我们只想要里面的内容呢？<br>这时候如果把print(name)修改为print(name.get_text())，即可的到如下结果：<br><img src="/复杂HTML解析/name_without_tag.png" width="300" height="300"><br>ps:但是要注意，不是任何时候都要用get_text()。因为他会把所有的标签都清楚，会把标签里的信息，包括超链接、段落等等都去除，所以要谨慎使用。</p>
+<h1 id="导航树"><a href="#导航树" class="headerlink" title="导航树"></a>导航树</h1><p>我们在上面讲到如何通过标签的名称和属性来查找标签。但是如果我们需要通过已知一个标签在文档中的位置来查找另一个标签呢？这就需要导航树。我们用虚拟的在线购物网站<a href="http://www.pythonscraping.com/pages/page3.html" target="_blank" rel="noopener">http://www.pythonscraping.com/pages/page3.html</a>  （答应我，先去看看这个网站和它的源码好吗？）。这个HTML页面可以映射成如下一棵树：<br>—— html<br>&emsp;——body<br>&emsp;&emsp;——div.wrapper<br>&emsp;&emsp;&emsp;——h1<br>&emsp;&emsp;&emsp;——div.content<br>&emsp;&emsp;&emsp;——table#giftList<br>&emsp;&emsp;&emsp;&emsp;——tr<br>&emsp;&emsp;&emsp;&emsp;&emsp;——th<br>&emsp;&emsp;&emsp;&emsp;&emsp;——th<br>&emsp;&emsp;&emsp;&emsp;&emsp;——th<br>&emsp;&emsp;&emsp;&emsp;&emsp;——th<br>&emsp;&emsp;&emsp;——tr.gift#gift1<br>&emsp;&emsp;&emsp;&emsp;——td<br>&emsp;&emsp;&emsp;&emsp;——td<br>&emsp;&emsp;&emsp;&emsp;&emsp;——span.excitingNote<br>&emsp;&emsp;&emsp;&emsp;——td<br>&emsp;&emsp;&emsp;&emsp;——td<br>&emsp;&emsp;&emsp;&emsp;——td<br>&emsp;&emsp;&emsp;&emsp;&emsp;——img<br>&emsp;&emsp;&emsp;——…其他表格行忽略…<br>&emsp;——div.footer</p>
+<h2 id="1、子标签和后代标签"><a href="#1、子标签和后代标签" class="headerlink" title="1、子标签和后代标签"></a>1、子标签和后代标签</h2><p>子标签就是父标签的下一级，而后代标签是指一个父标签下所有级别的标签。例如上面，tr是tabel的子标签，而tr、th、td、img、span等都是tabel的后代标签。于是可以得到，所有的子标签都是后代标签，但不是所有的后代标签都是子标签。<br>例如:如果你用children就会获取到表格中所有产品数据行标签。但如果你用descentdants就会有更多的标签。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">html=urlopen(<span class="string">"http://www.pythonscraping.com/pages/page3.html"</span>)</span><br><span class="line">bsObj=BeautifulSoup(html)</span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> bsObj.find(<span class="string">"table"</span>,&#123;<span class="string">"id"</span>:<span class="string">"giftList"</span>&#125;).children:</span><br><span class="line">	<span class="built_in">print</span>(child)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>bsObj.find(“table”,{“id”,”giftList”}).children;<br><img src="/复杂HTML解析/children_tags.png" width="300" height="300"></li>
+<li>bsObj.find(“table”,{“id”,”giftList”}).descendants<br><img src="/复杂HTML解析/descendants_tags.png" width="300" height="300"></li>
+</ul>
+<h2 id="2、兄弟标签"><a href="#2、兄弟标签" class="headerlink" title="2、兄弟标签"></a>2、兄弟标签</h2><p>兄弟标签就是与你同级的标签就是你的兄弟标签，使用previous_sibling和next_sibling就可获取上一个或者下一个兄弟标签；使用previous_siblings和next_siblings可以获得一组兄弟标签，使用方法跟上面一样，这里不在赘述。效果可以自己试试。</p>
+<h2 id="3、父标签"><a href="#3、父标签" class="headerlink" title="3、父标签"></a>3、父标签</h2><p>父标签就是你的上一级标签，使用parent或者parents都有喜当爹的惊喜哦，请自己尝试。</p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式就是用一系列符号标识某种通用的模式匹配。正则表达式的规则比较多，常用的符号也较多。附上表达式规则表和常用符号表：<br><img src="/复杂HTML解析/regular_expression_rules.png" width="500" height="500"><br><img src="/复杂HTML解析/regular_expression_characters.png" width="500" height="500"><br>在这里举一个使用正则表达式寻找上述例子界面中所有的图片路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">html=urlopen(<span class="string">"http://www.pythonscraping.com/pages/page3.html"</span>)</span><br><span class="line">bsObj=BeautifulSoup(html)</span><br><span class="line"></span><br><span class="line">images=bsObj.findAll(<span class="string">"img"</span>,&#123;<span class="string">"src"</span>:re.compile(<span class="string">"\.\.\/img\/gifts/img.*\.jpg"</span>)&#125;)</span><br><span class="line"><span class="keyword">for</span> image <span class="keyword">in</span> images:</span><br><span class="line">    <span class="built_in">print</span>(image.attrs[<span class="string">'src'</span>])</span><br></pre></td></tr></table></figure></p>
+<h1 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h1><p>我们上面学习了如何获取和过滤标签（find()和findAll()），如何获取标签里的内容getText()。但是有时候可能我们不需要标签的内容，我们更想要查找标签的属性。比如标签’a’指向的URL链接就包含在href属性中，或者’img’标签的图片文件包含在src属性中。我们可以使用：<br>    myTag.attrs获取myTag标签的所有属性，存成一个python字典对象。比如我要获取src属性。我就可以写成：<br>    myImgTag.attrs[“src”]<br>该例子，在上面代码中有使用过。</p>
 
       
     </div>
@@ -458,9 +479,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/数据处理/" rel="tag"># 数据处理</a>
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/BeautifulSoup/" rel="tag"># BeautifulSoup</a>
           
         </div>
       
@@ -473,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/数据挖掘实战2-航空公司客户价值分析/" rel="next" title="数据挖掘实战2-航空公司客户价值分析">
-                <i class="fa fa-chevron-left"></i> 数据挖掘实战2-航空公司客户价值分析
+              <a href="/K-Means聚类算法/" rel="next" title="K-Means聚类算法">
+                <i class="fa fa-chevron-left"></i> K-Means聚类算法
               </a>
             
           </div>
@@ -482,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/K-Means聚类算法/" rel="prev" title="K-Means聚类算法">
-                K-Means聚类算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -644,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、什么是数据规范化"><span class="nav-number">1.</span> <span class="nav-text">一、什么是数据规范化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、规范化的处理方法"><span class="nav-number">2.</span> <span class="nav-text">二、规范化的处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、最小-最大规范化——离差标准化"><span class="nav-number">2.1.</span> <span class="nav-text">1、最小-最大规范化——离差标准化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、零-均值规范化——标准差标准化"><span class="nav-number">2.2.</span> <span class="nav-text">2、零-均值规范化——标准差标准化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、小数定标规范化"><span class="nav-number">2.3.</span> <span class="nav-text">3、小数定标规范化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、python实现三种规范化"><span class="nav-number">3.</span> <span class="nav-text">三、python实现三种规范化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BeautifulSoup的find-和findAll"><span class="nav-number">1.</span> <span class="nav-text">BeautifulSoup的find()和findAll()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、函数介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1、函数介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、举例说明"><span class="nav-number">1.2.</span> <span class="nav-text">2、举例说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导航树"><span class="nav-number">2.</span> <span class="nav-text">导航树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、子标签和后代标签"><span class="nav-number">2.1.</span> <span class="nav-text">1、子标签和后代标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、兄弟标签"><span class="nav-number">2.2.</span> <span class="nav-text">2、兄弟标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、父标签"><span class="nav-number">2.3.</span> <span class="nav-text">3、父标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number">3.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取属性"><span class="nav-number">4.</span> <span class="nav-text">获取属性</span></a></li></ol></div>
             
 
           </div>
